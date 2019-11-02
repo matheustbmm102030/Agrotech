@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="437.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agrotech.PrincipalController">
+    <children>
+        <Button fx:id="button" layoutX="217.0" layoutY="246.0" onAction="#handleButtonAction" text="Click Me!" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="589.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Cadastro de Funcionarios">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaFuncionario" text="Funcionario" />
+                  <MenuItem mnemonicParsing="false" onAction="#prestadoraDeServico" text="Cadastrar Prestadora de Serviço" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Cadastro de Mercadorias">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#materiaPrima" text="Cadastrar Materia Prima" />
+                  <MenuItem mnemonicParsing="false" onAction="#produto" text="Cadastrar Produto" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Entregas">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+    </children>
+</AnchorPane>

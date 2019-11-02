@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="647.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ui.Funcionario.JanelaFuncionarioController">
+   <children>
+      <Separator layoutX="29.0" layoutY="150.0" prefHeight="12.0" prefWidth="618.0" />
+      <JFXTextField fx:id="Id" editable="false" layoutX="14.0" layoutY="14.0" promptText="ID" />
+      <JFXTextField fx:id="Nome" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="415.0" promptText="Nome" />
+      <JFXTextField fx:id="tfTel" layoutX="459.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Telefone" />
+      <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="107.0" ripplerFill="BLACK" text="Salvar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="515.0" layoutY="107.0" text="Editar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="tfRg" layoutX="14.0" layoutY="94.0" promptText="RG" />
+      <JFXTextField fx:id="tfCpf" layoutX="168.0" layoutY="94.0" text="CPF" />
+      <JFXTextField fx:id="dataNascimento" layoutX="459.0" layoutY="14.0" prefHeight="25.0" prefWidth="151.0" promptText="Data/de/Nascimento" />
+      <TableView layoutX="26.0" layoutY="162.0" prefHeight="278.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="92.0" text="ID" />
+            <TableColumn prefWidth="361.0" text="Nome" />
+            <TableColumn prefWidth="142.0" text="Telefone" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
