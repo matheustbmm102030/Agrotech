@@ -14,12 +14,12 @@
       <JFXTextField fx:id="tfID" editable="false" layoutX="14.0" layoutY="14.0" promptText="ID" />
       <JFXTextField fx:id="tfNome" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="415.0" promptText="Nome" />
       <JFXTextField fx:id="tfTel" layoutX="459.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Telefone" />
-      <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="107.0" onAction="#bSalvar" ripplerFill="BLACK" text="Salvar">
+      <JFXButton buttonType="RAISED" layoutX="414.0" layoutY="107.0" onAction="#bSalvar" ripplerFill="BLACK" text="Salvar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="515.0" layoutY="107.0" text="Editar">
+      <JFXButton layoutX="496.0" layoutY="107.0" onAction="#bEditar" text="Editar">
          <font>
             <Font size="15.0" />
          </font>
@@ -39,5 +39,10 @@
          </columns>
       </TableView>
       <JFXTextField fx:id="tfEnd" layoutX="271.0" layoutY="14.0" promptText="Endereço" />
+      <JFXButton layoutX="573.0" layoutY="107.0" onAction="#bExcluir" text="Excluir">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

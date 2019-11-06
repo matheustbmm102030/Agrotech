@@ -32,4 +32,19 @@ public class FuncionarioServico {
         
     }
     
+    public void editar(Funcionario f){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        
+        //Mandar a DAO atualizar os dados no BD
+        dao.editar(f);
+        
+    }
+
+    public void excluir(Funcionario f) {
+        
+        dao.excluir(f);
+    }
+    
 }

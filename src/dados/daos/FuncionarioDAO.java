@@ -42,4 +42,41 @@ public class FuncionarioDAO {
         
     }
     
+    public void editar(Funcionario f) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Mandar sincronizar as alterações 
+        gerenciador.merge(f);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+    
+    public void excluir(Funcionario f){
+        
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+        
+        //Para excluir tem que dar o merge primeiro para 
+        //sincronizar o ator do BD com o ator que foi
+        //selecionado na tela
+        f = gerenciador.merge(f);
+
+        //Mandar sincronizar as alterações 
+        gerenciador.remove(f);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+        
+    }
+    
 }
