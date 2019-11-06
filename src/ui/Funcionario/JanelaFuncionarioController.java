@@ -31,7 +31,7 @@ public class JanelaFuncionarioController implements Initializable {
     @FXML
     private JFXTextField tfDataN;
     @FXML
-    private TableView<?> tabela;
+    private TableView<Funcionario> tabela;
 
     /**
      * Initializes the controller class.
@@ -129,11 +129,11 @@ public class JanelaFuncionarioController implements Initializable {
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<Funcionario> Funcionarios = servico.listar();
+        List<Funcionario> funcionarios = servico.listar();
         
         //Transformar a lista de atores no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(Funcionarios);
+        dados = FXCollections.observableArrayList(funcionarios);
         
         //Jogando os dados na tabela
         tabela.setItems(dados);
