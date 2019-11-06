@@ -35,7 +35,7 @@ public class FuncionarioDAO {
       
       //Criando a consulta ao BD
       TypedQuery consulta = gerenciador.createQuery(
-              "Select a from Funcionario f", Funcionario.class);
+              "Select f from Funcionario f", Funcionario.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();

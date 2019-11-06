@@ -1,13 +1,13 @@
 package dados.daos;
 
-import dados.entidades.MateriaPrima;
+import dados.entidades.PrestadoraDeServico;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
-public class MateriaPrimaDAO {
-    public void salvar(MateriaPrima mp){
+public class PrestadoraDeServicoDAO {
+    public void salvar(PrestadoraDeServico ps){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -16,7 +16,7 @@ public class MateriaPrimaDAO {
         gerenciador.getTransaction().begin();
         
         //Mandar persistir o ator
-        gerenciador.persist(mp);
+        gerenciador.persist(ps);
         
         //Commit
         gerenciador.getTransaction().commit();
@@ -28,14 +28,14 @@ public class MateriaPrimaDAO {
      * que estejam cadastrados no banco de dados
      * @return 
      */
-    public List<MateriaPrima> listar(){
+    public List<PrestadoraDeServico> listar(){
         
       //Pegando o gerenciador de acesso ao BD
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
       TypedQuery consulta = gerenciador.createQuery(
-              "Select a from MateriaPrima mp", MateriaPrima.class);
+              "Select a from PrestadoraDeServico ps", PrestadoraDeServico.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();

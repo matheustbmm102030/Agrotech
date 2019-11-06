@@ -1,19 +1,18 @@
 package serviços;
 
-import dados.daos.MateriaPrimaDAO;
-import dados.entidades.MateriaPrima;
+import dados.daos.PrestadoraDeServicoDAO;
+import dados.entidades.PrestadoraDeServico;
 import java.util.List;
 
-public class MateriaPrimaServico {
-       //Atributo para representar a camada de dados
-    private MateriaPrimaDAO dao = new MateriaPrimaDAO();
+public class PrestadoraDeServicoServico {
+    private PrestadoraDeServicoDAO dao = new PrestadoraDeServicoDAO();
     
-    public void salvar(MateriaPrima mp){
+    public void salvar(PrestadoraDeServico ps){
         //Fazer qualquer regra de negócio
         
         //Mandar o ator para a camada de dados
         //para ser salvo no banco de dados
-        dao.salvar(mp);
+        dao.salvar(ps);
     }
     
     /**
@@ -21,7 +20,7 @@ public class MateriaPrimaServico {
      * cadastrados
      * @return 
      */
-    public List<MateriaPrima> listar(){
+    public List<PrestadoraDeServico> listar(){
         
         //Qualquer regra de negócio (se aplicável)
         
