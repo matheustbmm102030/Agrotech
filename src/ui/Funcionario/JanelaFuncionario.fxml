@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="474.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Funcionario.JanelaFuncionarioController">
    <children>
-      <Separator layoutX="29.0" layoutY="150.0" prefHeight="12.0" prefWidth="618.0" />
+      <Separator layoutX="15.0" layoutY="148.0" prefHeight="12.0" prefWidth="618.0" />
       <JFXTextField fx:id="tfID" editable="false" layoutX="14.0" layoutY="14.0" promptText="ID" />
       <JFXTextField fx:id="tfNome" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="415.0" promptText="Nome" />
       <JFXTextField fx:id="tfTel" layoutX="459.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Telefone" />

@@ -1,13 +1,18 @@
-package ui.Funcionario;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ui.PrestadoraDeServico;
 
-import dados.entidades.Funcionario;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import dados.entidades.PrestadoraDeServico;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,10 +21,19 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import serviços.FuncionarioServico;
+import serviços.PrestadoraDeServicoServico;
 
-public class JanelaFuncionarioController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author medei
+ */
+public class JanelaPrestadoraDeServicoController implements Initializable {
 
+    @FXML
+    private JFXTextField tfID;
+    @FXML
+    private JFXTextField tfNome;
     @FXML
     private JFXTextField tfTel;
     @FXML
@@ -27,69 +41,55 @@ public class JanelaFuncionarioController implements Initializable {
     @FXML
     private JFXTextField tfCpf;
     @FXML
-    private JFXTextField tfID;
-    @FXML
-    private JFXTextField tfNome;
-    @FXML
     private JFXTextField tfDataN;
     @FXML
-    private TableView<Funcionario> tabela;
+    private JFXTextField tfEnd;
+    @FXML
+    private TableView<?> tabela;
+    @FXML
+    private TableColumn<?, ?> colID;
+    @FXML
+    private TableColumn<?, ?> colNome;
+    @FXML
+    private TableColumn<?, ?> colEnd;
+    @FXML
+    private TableColumn<?, ?> colTel;
+    @FXML
+    private TableColumn<?, ?> colRg;
+    @FXML
+    private TableColumn<?, ?> colCPF;
+    @FXML
+    private TableColumn<?, ?> colDataN;
+    @FXML
+    private TableColumn<?, ?> colSupervisor;
+    @FXML
+    private JFXComboBox<?> cbSupervisor;
 
     /**
      * Initializes the controller class.
      */
-    private FuncionarioServico servico = new FuncionarioServico();
-    
-
-    @FXML
-    private JFXTextField tfEnd;
-    @FXML
-    private TableColumn colID;
-    @FXML
-    private TableColumn colNome;
-    @FXML
-    private TableColumn colEnd;
-    @FXML
-    private TableColumn colTel;
-    @FXML
-    private TableColumn colRg;
-    @FXML
-    private TableColumn colCPF;
-    @FXML
-    private TableColumn colDataN;
-    
-    private ObservableList<Funcionario> dados = 
-            FXCollections.observableArrayList();
-    
-    private Funcionario selecionado;
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                
-        //Configure a tabela
-        configurarTabela();
-        
-        //Carregue a lista de atores na tabela
-        listarFuncionariosTabela();
+        // TODO
     }    
-
+/*
     @FXML
     private void bSalvar(ActionEvent event) {
-          //Verificar se está atualizando ou inserindo
+        //Verificar se está atualizando ou inserindo
         if(tfID.getText().isEmpty()){ //inserindo
             //Pega os dados do fomulário
             //e cria um objeto funcionario
-            Funcionario f = new Funcionario(tfNome.getText(),tfEnd.getText(),
-                tfTel.getText(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
+            PrestadoraDeServico ps = new PrestadoraDeServico(tfNome.getText(),tfEnd.getText(),
+                tfTel.getText(),cbSupervisor.getValue(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
 
             //Mandar o ator para a camada de servico
-            servico.salvar(f);
+            servico.salvar(ps);
             
             //Exibindo mensagem
-            mensagemSucesso("Funcionario salvo com sucesso!");
+            mensagemSucesso("Prestadora de servico salvo com sucesso!");
             
             //Chama o metodo para atualizar a tabela
-            listarFuncionariosTabela();
+            listarPrestadoraDeServicoTabela();
             
         }else{ //atualizando o ator
            
@@ -116,7 +116,7 @@ public class JanelaFuncionarioController implements Initializable {
                 mensagemSucesso("Ator atualizado com sucesso!"); 
                 
                 //Chama o metodo para atualizar a tabela
-                 listarFuncionariosTabela();
+                 listarPrestadoraDeServicoTabela();
             }
             
         }
@@ -124,8 +124,9 @@ public class JanelaFuncionarioController implements Initializable {
         
         //Limpando o form
         tfID.setText("");
-        tfNome.setText("");       
+        tfNome.setText("");
     }
+
         public void mensagemSucesso(String m){
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("SUCESSO!"); 
@@ -133,18 +134,9 @@ public class JanelaFuncionarioController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait(); 
     }
-        /**
-     * Fazendo configuração das colunas da
-     * tabeça
-     */
+    
     private void configurarTabela(){
         
-        //Dizer de onde a coluna vai pegar o valor para
-        //exibir, basta dizer o nome do metodo get
-        //que deve ser chamado para cada coluna
-        // A string entre parênteses é o nome do atributo
-        // que vc deseja chamar o get (quase sempre)
-        //import javafx.scene.control.cell.PropertyValueFactory;
         colID.setCellValueFactory(
                 new PropertyValueFactory("id"));
         colNome.setCellValueFactory(
@@ -160,22 +152,18 @@ public class JanelaFuncionarioController implements Initializable {
         colDataN.setCellValueFactory(
                 new PropertyValueFactory("dataNasc"));
         
-    }//configurarTabela
+    }
     
-    /**
-     * Responsável por carregar a lista de atores 
-     * na tabela
-     */
-    private void listarFuncionariosTabela(){
+    private void listarPrestadoraDeServicoTabela(){
         //Limpando quaisquer dados anteriores
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<Funcionario> funcionarios = servico.listar();
+        List<PrestadoraDeServico> prestadoraDeServicos = servico.listar();
         
         //Transformar a lista de funcionario no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(funcionarios);
+        dados = FXCollections.observableArrayList(prestadoraDeServicos);
         
         //Jogando os dados na tabela
         tabela.setItems(dados);
@@ -189,7 +177,7 @@ public class JanelaFuncionarioController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait();
     }
-
+        
     @FXML
     private void bEditar(ActionEvent event) {
         
@@ -214,11 +202,6 @@ public class JanelaFuncionarioController implements Initializable {
         }
     }
     
-        /**
-     * Mostra uma caixa com uma mensagem de confirmação
-     * onde a pessoa vai poder responder se deseja realizar
-     * uma ação
-     */
     private Optional<ButtonType> mensagemDeConfirmacao(String mensagem, String titulo) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
@@ -228,8 +211,7 @@ public class JanelaFuncionarioController implements Initializable {
     }
 
     @FXML
-    private void bExcluir(ActionEvent event) {
-        
+    private void bExcluir(ActionEvent event) {    
         //Pegar o ator que foi selecionado na tabela
         selecionado = tabela.getSelectionModel()
                 .getSelectedItem();
@@ -252,7 +234,7 @@ public class JanelaFuncionarioController implements Initializable {
                 mensagemSucesso("Funcionario excluído com sucesso");
                 
                 //Atualizar a tabela
-                listarFuncionariosTabela();              
+                listarPrestadoraDeServicoTabela();              
                 
             }
             
@@ -261,7 +243,6 @@ public class JanelaFuncionarioController implements Initializable {
         }else{
             mensagemErro("Selecione um ator.");
         }
-        
     }
-    
+    */
 }
