@@ -11,7 +11,7 @@ public class RecolhimentoProduto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private PrestadoraDeServico prestadora;
+    private Equipe prestadora;
     private Produto produtos;
     private String dataEntrega;
     
@@ -19,20 +19,20 @@ public class RecolhimentoProduto {
     public RecolhimentoProduto(){}
     
     //Construtor
-    public RecolhimentoProduto(PrestadoraDeServico ps, Produto p,String de){
+    public RecolhimentoProduto(Equipe ps, Produto p,String de){
         this.setPrestadora(ps);
         this.setProdutos(p);
         this.setDataEntrega(de);
     }
 
     public Integer getId() {  return id;}
-    public PrestadoraDeServico getPrestadora() {  return prestadora;}
+    public Equipe getPrestadora() {  return prestadora;}
     public Produto getProdutos() {  return produtos;}
     public String getDataEntrega() {  return dataEntrega;}
 
     
     public void setId(Integer id) {  this.id = id;}
-    public void setPrestadora(PrestadoraDeServico prestadora) {  this.prestadora = prestadora;}
+    public void setPrestadora(Equipe prestadora) {  this.prestadora = prestadora;}
     public void setProdutos(Produto produtos) {  this.produtos = produtos;}
     public void setDataEntrega(String dataEntrega) {  this.dataEntrega = dataEntrega;}
 

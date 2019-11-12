@@ -1,13 +1,13 @@
 package dados.daos;
 
-import dados.entidades.PrestadoraDeServico;
+import dados.entidades.Supervisor;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
-public class PrestadoraDeServicoDAO {
-    public void salvar(PrestadoraDeServico ps){
+public class SupervisorDAO {
+    public void salvar(Supervisor f){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -16,7 +16,7 @@ public class PrestadoraDeServicoDAO {
         gerenciador.getTransaction().begin();
         
         //Mandar persistir o ator
-        gerenciador.persist(ps);
+        gerenciador.persist(f);
         
         //Commit
         gerenciador.getTransaction().commit();
@@ -28,21 +28,20 @@ public class PrestadoraDeServicoDAO {
      * que estejam cadastrados no banco de dados
      * @return 
      */
-    public List<PrestadoraDeServico> listar(){
+    public List<Supervisor> listar(){
         
       //Pegando o gerenciador de acesso ao BD
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery(
-              "Select ps from PrestadoraDeServico ps", PrestadoraDeServico.class);
+      TypedQuery consulta = gerenciador.createQuery("Select f from Funcionario f", Supervisor.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();
         
     }
     
-    public void editar(PrestadoraDeServico ps) {
+    public void editar(Supervisor f) {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -51,14 +50,14 @@ public class PrestadoraDeServicoDAO {
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
-        gerenciador.merge(ps);
+        gerenciador.merge(f);
         
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
     
-    public void excluir(PrestadoraDeServico ps){
+    public void excluir(Supervisor f){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -69,13 +68,14 @@ public class PrestadoraDeServicoDAO {
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o ator do BD com o ator que foi
         //selecionado na tela
-        ps = gerenciador.merge(ps);
+        f = gerenciador.merge(f);
 
         //Mandar sincronizar as alterações 
-        gerenciador.remove(ps);
+        gerenciador.remove(f);
         
         //Commit na transação
         gerenciador.getTransaction().commit();
         
     }
+    
 }

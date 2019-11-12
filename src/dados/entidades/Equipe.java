@@ -6,22 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Funcionario {
-    
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class Equipe {
     private Integer id;
-    private String nome, endereco, telefone,rg,cpf,dataNasc;
+    private String nome, endereco, telefone, rg, cpf,dataNasc;
+    private Supervisor responsavel;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
-    public Funcionario(){}
+    public Equipe(){}
     
     //Construtor
-    public Funcionario(String n,String e,String t,String rgs,String cpfs,String dn){
+    public Equipe(String n,String e,String t,Supervisor r,String rgs,String cpfs,String dn){
         this.setNome(n);
         this.setEndereco(e);
         this.setTelefone(t);
+        this.setResponsavel(r);
         this.setRg(rgs);
         this.setCpf(cpfs);
         this.setDataNasc(dn);
@@ -31,6 +29,7 @@ public class Funcionario {
     public String getNome() {  return nome;}
     public String getEndereco(){  return endereco;}    
     public String getTelefone() {  return telefone;}
+    public Supervisor getResponsavel() {  return responsavel;}
     public String getRg() {  return rg;}
     public String getCpf() {  return cpf;}
     public String getDataNasc() {  return dataNasc;}
@@ -39,11 +38,15 @@ public class Funcionario {
     public void setNome(String nome) {  this.nome = nome;}
     public void setEndereco(String endereco) {  this.endereco = endereco;}
     public void setTelefone(String telefone) {  this.telefone = telefone;}
+    public void setResponsavel(Supervisor responsavel) {  this.responsavel = responsavel;}
     public void setRg(String rg) {  this.rg = rg;}
     public void setCpf(String cpf) {  this.cpf = cpf;}
     public void setDataNasc(String dataNasc) {  this.dataNasc = dataNasc;}
+
+
     
     
+
     ///////////////////////////////////////////////////////////////////////////
     
     @Override
@@ -64,7 +67,7 @@ public class Funcionario {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Funcionario other = (Funcionario) obj;
+        final Equipe other = (Equipe) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

@@ -1,18 +1,20 @@
 package serviços;
 
-import dados.daos.PrestadoraDeServicoDAO;
-import dados.entidades.PrestadoraDeServico;
+import dados.daos.InsumoDAO;
+import dados.entidades.Insumo;
 import java.util.List;
 
-public class PrestadoraDeServicoServico {
-    private PrestadoraDeServicoDAO dao = new PrestadoraDeServicoDAO();
+public class InsumoServico {
+       //Atributo para representar a camada de dados
+    private InsumoDAO dao = new InsumoDAO();
     
-    public void salvar(PrestadoraDeServico ps){
+    
+    public void salvar(Insumo mp){
         //Fazer qualquer regra de negócio
         
         //Mandar o ator para a camada de dados
         //para ser salvo no banco de dados
-        dao.salvar(ps);
+        dao.salvar(mp);
     }
     
     /**
@@ -20,7 +22,7 @@ public class PrestadoraDeServicoServico {
      * cadastrados
      * @return 
      */
-    public List<PrestadoraDeServico> listar(){
+    public List<Insumo> listar(){
         
         //Qualquer regra de negócio (se aplicável)
         
@@ -29,18 +31,19 @@ public class PrestadoraDeServicoServico {
         
     }
     
-    public void editar(PrestadoraDeServico ps){
+    public void editar(Insumo mp){
         
         //Qualquer regra de negócio (se aplicável)
         
         
         //Mandar a DAO atualizar os dados no BD
-        dao.editar(ps);
+        dao.editar(mp);
         
     }
 
-    public void excluir(PrestadoraDeServico ps) {
+    public void excluir(Insumo mp) {
         
-        dao.excluir(ps);
+        dao.excluir(mp);
     }
+    
 }

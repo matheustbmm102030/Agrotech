@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Insumo.JanelaInsumoController">
+   <children>
+      <Separator layoutX="18.0" layoutY="154.0" prefHeight="12.0" prefWidth="618.0" />
+      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="20.0" promptText="ID" />
+      <JFXTextField fx:id="tfTipo" layoutX="17.0" layoutY="58.0" prefHeight="25.0" prefWidth="415.0" promptText="Tipo" />
+      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="113.0" onAction="#bSalvar" ripplerFill="BLACK" text="Salvar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="499.0" layoutY="113.0" onAction="#bEditar" text="Editar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="tfQuant" layoutX="18.0" layoutY="101.0" prefHeight="25.0" prefWidth="203.0" promptText="Quantidade" />
+      <JFXButton layoutX="576.0" layoutY="113.0" onAction="#bExcluir" text="Excluir">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="166.0" prefHeight="319.0" prefWidth="626.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="82.0" text="ID" />
+            <TableColumn fx:id="colTipo" prefWidth="406.0" text="Tipo" />
+            <TableColumn fx:id="colQuant" minWidth="0.0" prefWidth="137.0" text="Quantidade" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

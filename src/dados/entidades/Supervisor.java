@@ -6,20 +6,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class PrestadoraDeServico {
+@Entity
+public class Supervisor {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private String nome, endereco, telefone, rg, cpf,dataNasc;
-    private Funcionario responsavel;
+    private String nome, endereco, telefone,rg,cpf,dataNasc;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
-    public PrestadoraDeServico(){}
+    public Supervisor(){}
     
     //Construtor
-    public PrestadoraDeServico(String n,String e,String t,Funcionario r,String rgs,String cpfs,String dn){
+    public Supervisor(String n,String e,String t,String rgs,String cpfs,String dn){
         this.setNome(n);
         this.setEndereco(e);
         this.setTelefone(t);
-        this.setResponsavel(r);
         this.setRg(rgs);
         this.setCpf(cpfs);
         this.setDataNasc(dn);
@@ -29,7 +31,6 @@ public class PrestadoraDeServico {
     public String getNome() {  return nome;}
     public String getEndereco(){  return endereco;}    
     public String getTelefone() {  return telefone;}
-    public Funcionario getResponsavel() {  return responsavel;}
     public String getRg() {  return rg;}
     public String getCpf() {  return cpf;}
     public String getDataNasc() {  return dataNasc;}
@@ -38,15 +39,11 @@ public class PrestadoraDeServico {
     public void setNome(String nome) {  this.nome = nome;}
     public void setEndereco(String endereco) {  this.endereco = endereco;}
     public void setTelefone(String telefone) {  this.telefone = telefone;}
-    public void setResponsavel(Funcionario responsavel) {  this.responsavel = responsavel;}
     public void setRg(String rg) {  this.rg = rg;}
     public void setCpf(String cpf) {  this.cpf = cpf;}
     public void setDataNasc(String dataNasc) {  this.dataNasc = dataNasc;}
-
-
     
     
-
     ///////////////////////////////////////////////////////////////////////////
     
     @Override
@@ -67,7 +64,7 @@ public class PrestadoraDeServico {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PrestadoraDeServico other = (PrestadoraDeServico) obj;
+        final Supervisor other = (Supervisor) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

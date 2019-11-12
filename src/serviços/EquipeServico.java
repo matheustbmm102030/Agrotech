@@ -1,21 +1,18 @@
-
 package serviços;
 
-import dados.daos.FuncionarioDAO;
-import dados.entidades.Funcionario;
+import dados.daos.EquipeDAO;
+import dados.entidades.Equipe;
 import java.util.List;
 
-public class FuncionarioServico {
-        
-    //Atributo para representar a camada de dados
-    private FuncionarioDAO dao = new FuncionarioDAO();
+public class EquipeServico {
+    private EquipeDAO dao = new EquipeDAO();
     
-    public void salvar(Funcionario f){
+    public void salvar(Equipe ps){
         //Fazer qualquer regra de negócio
         
         //Mandar o ator para a camada de dados
         //para ser salvo no banco de dados
-        dao.salvar(f);
+        dao.salvar(ps);
     }
     
     /**
@@ -23,7 +20,7 @@ public class FuncionarioServico {
      * cadastrados
      * @return 
      */
-    public List<Funcionario> listar(){
+    public List<Equipe> listar(){
         
         //Qualquer regra de negócio (se aplicável)
         
@@ -32,19 +29,18 @@ public class FuncionarioServico {
         
     }
     
-    public void editar(Funcionario f){
+    public void editar(Equipe ps){
         
         //Qualquer regra de negócio (se aplicável)
         
         
         //Mandar a DAO atualizar os dados no BD
-        dao.editar(f);
+        dao.editar(ps);
         
     }
 
-    public void excluir(Funcionario f) {
+    public void excluir(Equipe ps) {
         
-        dao.excluir(f);
+        dao.excluir(ps);
     }
-    
 }

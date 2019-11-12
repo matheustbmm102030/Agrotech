@@ -1,13 +1,13 @@
 package dados.daos;
 
-import dados.entidades.Funcionario;
+import dados.entidades.Insumo;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
-public class FuncionarioDAO {
-    public void salvar(Funcionario f){
+public class InsumoDAO {
+    public void salvar(Insumo f){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -28,21 +28,20 @@ public class FuncionarioDAO {
      * que estejam cadastrados no banco de dados
      * @return 
      */
-    public List<Funcionario> listar(){
+    public List<Insumo> listar(){
         
       //Pegando o gerenciador de acesso ao BD
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery(
-              "Select f from Funcionario f", Funcionario.class);
+      TypedQuery consulta = gerenciador.createQuery("Select mp from MateriaPrima mp", Insumo.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();
         
     }
     
-    public void editar(Funcionario f) {
+    public void editar(Insumo f) {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -58,7 +57,7 @@ public class FuncionarioDAO {
 
     }
     
-    public void excluir(Funcionario f){
+    public void excluir(Insumo mp){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -69,10 +68,10 @@ public class FuncionarioDAO {
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o ator do BD com o ator que foi
         //selecionado na tela
-        f = gerenciador.merge(f);
+        mp = gerenciador.merge(mp);
 
         //Mandar sincronizar as alterações 
-        gerenciador.remove(f);
+        gerenciador.remove(mp);
         
         //Commit na transação
         gerenciador.getTransaction().commit();

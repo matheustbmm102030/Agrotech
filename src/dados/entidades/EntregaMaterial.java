@@ -11,29 +11,29 @@ public class EntregaMaterial {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private PrestadoraDeServico prestadora;
-    private MateriaPrima materiais;
+    private Equipe prestadora;
+    private Insumo materiais;
     private String dataEntrega;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
     public EntregaMaterial(){}
     
     //Construtor
-    public EntregaMaterial(PrestadoraDeServico ps, MateriaPrima mp,String de){
+    public EntregaMaterial(Equipe ps, Insumo mp,String de){
         this.setPrestadora(ps);
         this.setMateriais(mp);
         this.setDataEntrega(de);
     }
 
     public Integer getId() {  return id;}
-    public PrestadoraDeServico getPrestadora() {  return prestadora;}
-    public MateriaPrima getMateriais() {  return materiais;}
+    public Equipe getPrestadora() {  return prestadora;}
+    public Insumo getMateriais() {  return materiais;}
     public String getDataEntrega() {  return dataEntrega;}
 
     
     public void setId(Integer id) {  this.id = id;}
-    public void setPrestadora(PrestadoraDeServico prestadora) {  this.prestadora = prestadora;}
-    public void setMateriais(MateriaPrima materiais) {  this.materiais = materiais;}
+    public void setPrestadora(Equipe prestadora) {  this.prestadora = prestadora;}
+    public void setMateriais(Insumo materiais) {  this.materiais = materiais;}
     public void setDataEntrega(String dataEntrega) {  this.dataEntrega = dataEntrega;}
 
     

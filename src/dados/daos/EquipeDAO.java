@@ -1,13 +1,13 @@
 package dados.daos;
 
-import dados.entidades.MateriaPrima;
+import dados.entidades.Equipe;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
-public class MateriaPrimaDAO {
-    public void salvar(MateriaPrima f){
+public class EquipeDAO {
+    public void salvar(Equipe ps){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -16,7 +16,7 @@ public class MateriaPrimaDAO {
         gerenciador.getTransaction().begin();
         
         //Mandar persistir o ator
-        gerenciador.persist(f);
+        gerenciador.persist(ps);
         
         //Commit
         gerenciador.getTransaction().commit();
@@ -28,21 +28,20 @@ public class MateriaPrimaDAO {
      * que estejam cadastrados no banco de dados
      * @return 
      */
-    public List<MateriaPrima> listar(){
+    public List<Equipe> listar(){
         
       //Pegando o gerenciador de acesso ao BD
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery(
-              "Select mp from MateriaPrima mp", MateriaPrima.class);
+      TypedQuery consulta = gerenciador.createQuery("Select ps from PrestadoraDeServico ps", Equipe.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();
         
     }
     
-    public void editar(MateriaPrima f) {
+    public void editar(Equipe ps) {
 
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -51,14 +50,14 @@ public class MateriaPrimaDAO {
         gerenciador.getTransaction().begin();
 
         //Mandar sincronizar as alterações 
-        gerenciador.merge(f);
+        gerenciador.merge(ps);
         
         //Commit na transação
         gerenciador.getTransaction().commit();
 
     }
     
-    public void excluir(MateriaPrima mp){
+    public void excluir(Equipe ps){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -69,14 +68,13 @@ public class MateriaPrimaDAO {
         //Para excluir tem que dar o merge primeiro para 
         //sincronizar o ator do BD com o ator que foi
         //selecionado na tela
-        mp = gerenciador.merge(mp);
+        ps = gerenciador.merge(ps);
 
         //Mandar sincronizar as alterações 
-        gerenciador.remove(mp);
+        gerenciador.remove(ps);
         
         //Commit na transação
         gerenciador.getTransaction().commit();
         
     }
-    
 }

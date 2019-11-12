@@ -1,6 +1,6 @@
 package teste;
 
-import dados.entidades.Funcionario;
+import dados.entidades.Supervisor;
 import javax.persistence.*;
 import util.JPAUtil;
 
@@ -8,7 +8,7 @@ public class TesteFuncionario {
     public static void main(String[] args) {
         
         //Criando um objeto ator
-        Funcionario a1 = new Funcionario("Raduken","mora ali","9999999","Rg2934","cpf282374","20.98.3823");
+        Supervisor a1 = new Supervisor("Raduken","mora ali","9999999","Rg2934","cpf282374","20.98.3823");
        // a1.setNome();
         
         //Pegando o gerenciador de acesso ao BD

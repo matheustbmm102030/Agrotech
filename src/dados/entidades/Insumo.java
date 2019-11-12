@@ -6,17 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class MateriaPrima {
+public class Insumo {
     
     private Integer id;
     private String tipo;
     private Integer quantidade;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
-    public MateriaPrima(){}
+    public Insumo(){}
     
     //Construtor
-    public MateriaPrima(String t, Integer q){
+    public Insumo(String t, Integer q){
         this.setTipo(t);
         this.setQuantidade(q);
     }
@@ -52,7 +52,7 @@ public class MateriaPrima {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MateriaPrima other = (MateriaPrima) obj;
+        final Insumo other = (Insumo) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

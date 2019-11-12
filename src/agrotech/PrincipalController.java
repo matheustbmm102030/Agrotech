@@ -99,13 +99,13 @@ public class PrincipalController implements Initializable {
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
         Parent root = FXMLLoader.load(getClass()
-                .getResource("/ui/MateriaPrima/JanelaMateriaPrima.fxml"));
+                .getResource("/ui/MateriaPrima/JanelaInsumo.fxml"));
         //Criando a cena
         Scene scene = new Scene(root);
         //Criando a janela (STAGE) 
         Stage stage = new Stage(StageStyle.UTILITY);
         //Titulo na janela
-        stage.setTitle("Prestadoras De Serviços");
+        stage.setTitle("Insumos");
         //Adicionando a cena na janela
         stage.setScene(scene);
         //Configurando o MODALITY

@@ -1,20 +1,21 @@
+
 package serviços;
 
-import dados.daos.MateriaPrimaDAO;
-import dados.entidades.MateriaPrima;
+import dados.daos.SupervisorDAO;
+import dados.entidades.Supervisor;
 import java.util.List;
 
-public class MateriaPrimaServico {
-       //Atributo para representar a camada de dados
-    private MateriaPrimaDAO dao = new MateriaPrimaDAO();
+public class SupervisorServico {
+        
+    //Atributo para representar a camada de dados
+    private SupervisorDAO dao = new SupervisorDAO();
     
-    
-    public void salvar(MateriaPrima mp){
+    public void salvar(Supervisor f){
         //Fazer qualquer regra de negócio
         
         //Mandar o ator para a camada de dados
         //para ser salvo no banco de dados
-        dao.salvar(mp);
+        dao.salvar(f);
     }
     
     /**
@@ -22,7 +23,7 @@ public class MateriaPrimaServico {
      * cadastrados
      * @return 
      */
-    public List<MateriaPrima> listar(){
+    public List<Supervisor> listar(){
         
         //Qualquer regra de negócio (se aplicável)
         
@@ -31,19 +32,19 @@ public class MateriaPrimaServico {
         
     }
     
-    public void editar(MateriaPrima mp){
+    public void editar(Supervisor f){
         
         //Qualquer regra de negócio (se aplicável)
         
         
         //Mandar a DAO atualizar os dados no BD
-        dao.editar(mp);
+        dao.editar(f);
         
     }
 
-    public void excluir(MateriaPrima mp) {
+    public void excluir(Supervisor f) {
         
-        dao.excluir(mp);
+        dao.excluir(f);
     }
     
 }

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.PrestadoraDeServico;
+package ui.Equipe;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dados.entidades.PrestadoraDeServico;
+import dados.entidades.Equipe;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -21,14 +21,14 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import serviços.PrestadoraDeServicoServico;
+import serviços.EquipeServico;
 
 /**
  * FXML Controller class
  *
  * @author medei
  */
-public class JanelaPrestadoraDeServicoController implements Initializable {
+public class JanelaEquipeController implements Initializable {
 
     @FXML
     private JFXTextField tfID;
@@ -79,17 +79,17 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
         if(tfID.getText().isEmpty()){ //inserindo
             //Pega os dados do fomulário
             //e cria um objeto funcionario
-            PrestadoraDeServico ps = new PrestadoraDeServico(tfNome.getText(),tfEnd.getText(),
+            Equipe ps = new Equipe(tfNome.getText(),tfEnd.getText(),
                 tfTel.getText(),cbSupervisor.getClass(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
 
             //Mandar o ator para a camada de servico
             servico.salvar(ps);
             
             //Exibindo mensagem
-            mensagemSucesso("Prestadora de servico salvo com sucesso!");
+            mensagemSucesso("Integrante da Equipe salvo com sucesso!");
             
             //Chama o metodo para atualizar a tabela
-            listarPrestadoraDeServicoTabela();
+            listarEquipeTabela();
             
         }else{ //atualizando o ator
            
@@ -116,7 +116,7 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
                 mensagemSucesso("Ator atualizado com sucesso!"); 
                 
                 //Chama o metodo para atualizar a tabela
-                 listarPrestadoraDeServicoTabela();
+                 listarEquipeTabela();
             }
             
         }
@@ -154,16 +154,16 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
         
     }
     
-    private void listarPrestadoraDeServicoTabela(){
+    private void listarEquipeTabela(){
         //Limpando quaisquer dados anteriores
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<PrestadoraDeServico> prestadoraDeServicos = servico.listar();
+        List<Equipe> prestadoraDeServicos = servico.listar();
         
         //Transformar a lista de funcionario no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(prestadoraDeServicos);
+        dados = FXCollections.observableArrayList(equipes);
         
         //Jogando os dados na tabela
         tabela.setItems(dados);
@@ -198,7 +198,7 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
             tfDataN.setText( selecionado.getDataNasc() );
                            
         }else{ //não tem ator selecionado na tabela
-            mensagemErro("Selecione um funcionario.");
+            mensagemErro("Selecione um Integrante da Equipe.");
         }
     }
     
@@ -234,15 +234,16 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
                 mensagemSucesso("Funcionario excluído com sucesso");
                 
                 //Atualizar a tabela
-                listarPrestadoraDeServicoTabela();              
+                listarEquipeTabela();              
                 
             }
             
             
             
         }else{
-            mensagemErro("Selecione um ator.");
+            mensagemErro("Selecione um Integrante da Equipe.");
         }
     }
     */
+
 }
