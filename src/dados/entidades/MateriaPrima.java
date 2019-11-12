@@ -16,8 +16,7 @@ public class MateriaPrima {
     public MateriaPrima(){}
     
     //Construtor
-    public MateriaPrima(Integer i,String t, Integer q){
-        this.setId(i);
+    public MateriaPrima(String t, Integer q){
         this.setTipo(t);
         this.setQuantidade(q);
     }

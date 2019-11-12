@@ -1,6 +1,6 @@
-package ui.Funcionario;
+package ui.MateriaPrima;
 
-import dados.entidades.Funcionario;
+import dados.entidades.MateriaPrima;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.List;
@@ -16,50 +16,35 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import serviços.FuncionarioServico;
+import serviços.MateriaPrimaServico;
 
-public class JanelaFuncionarioController implements Initializable {
-
-    @FXML
-    private JFXTextField tfTel;
-    @FXML
-    private JFXTextField tfRg;
-    @FXML
-    private JFXTextField tfCpf;
+public class JanelaMateriaPrimaController implements Initializable {
+    
     @FXML
     private JFXTextField tfID;
     @FXML
-    private JFXTextField tfNome;
+    private JFXTextField tfTipo;
     @FXML
-    private JFXTextField tfDataN;
+    private JFXTextField tfQuant;
     @FXML
-    private TableView<Funcionario> tabela;
-    @FXML
-    private JFXTextField tfEnd;
+    private TableView<MateriaPrima> tabela;
     @FXML
     private TableColumn colID;
     @FXML
-    private TableColumn colNome;
+    private TableColumn colTipo;
     @FXML
-    private TableColumn colEnd;
-    @FXML
-    private TableColumn colTel;
-    @FXML
-    private TableColumn colRg;
-    @FXML
-    private TableColumn colCPF;
-    @FXML
-    private TableColumn colDataN;
-
-    /**
+    private TableColumn colQuant;
+    
+     /**
      * Initializes the controller class.
      */
-    private FuncionarioServico servico = new FuncionarioServico();
+    private MateriaPrimaServico servico = new MateriaPrimaServico();
 
-    private ObservableList<Funcionario> dados = 
+    private ObservableList<MateriaPrima> dados = 
             FXCollections.observableArrayList();
+   
+    private MateriaPrima selecionado;
     
-    private Funcionario selecionado;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,7 +53,7 @@ public class JanelaFuncionarioController implements Initializable {
         configurarTabela();
         
         //Carregue a lista de atores na tabela
-        listarFuncionariosTabela();
+        listarMateriasPrimasTabela();
     }    
 
     @FXML
@@ -77,17 +62,17 @@ public class JanelaFuncionarioController implements Initializable {
         if(tfID.getText().isEmpty()){ //inserindo
             //Pega os dados do fomulário
             //e cria um objeto funcionario
-            Funcionario f = new Funcionario(tfNome.getText(),tfEnd.getText(),
-                tfTel.getText(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
+            MateriaPrima mp = new MateriaPrima(tfTipo.getText(),
+                    Integer.parseInt(tfQuant.getText()));
 
             //Mandar o ator para a camada de servico
-            servico.salvar(f);
+            servico.salvar(mp);
             
             //Exibindo mensagem
-            mensagemSucesso("Funcionario salvo com sucesso!");
+            mensagemSucesso("Materia Prima salva com sucesso!");
             
             //Chama o metodo para atualizar a tabela
-            listarFuncionariosTabela();
+            listarMateriasPrimasTabela();
             
         }else{ //atualizando o ator
            
@@ -100,21 +85,18 @@ public class JanelaFuncionarioController implements Initializable {
             if(btn.get() == ButtonType.OK){
                 //Pegar os novos dados do formulário e
                 //atualizar o meu ator
-                selecionado.setNome(tfNome.getText());
-                selecionado.setEndereco(tfEnd.getText());
-                selecionado.setTelefone(tfTel.getText());
-                selecionado.setRg(tfRg.getText());
-                selecionado.setCpf(tfCpf.getText());
-                selecionado.setDataNasc(tfDataN.getText());
+                selecionado.setTipo(tfTipo.getText());
+                selecionado.setQuantidade(Integer.parseInt(tfQuant.getText()));
+
                 
                 //Mandando pra camada de serviço salvar as alterações
                 servico.editar(selecionado);
                 
                 //Exibindo mensagem
-                mensagemSucesso("Ator atualizado com sucesso!"); 
+                mensagemSucesso("Materia Prima atualizado com sucesso!"); 
                 
                 //Chama o metodo para atualizar a tabela
-                 listarFuncionariosTabela();
+                 listarMateriasPrimasTabela();
             }
             
         }
@@ -122,24 +104,19 @@ public class JanelaFuncionarioController implements Initializable {
         
         //Limpando o form
         tfID.setText("");
-        tfEnd.setText("");
-        tfTel.setText("");
-        tfRg.setText("");
-        tfCpf.setText("");
-        tfDataN.setText("");
-        tfNome.setText("");       
+        tfTipo.setText("");
+        tfQuant.setText("");
     }
-        public void mensagemSucesso(String m){
+    
+    
+    public void mensagemSucesso(String m){
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("SUCESSO!"); 
         alerta.setHeaderText(null); 
         alerta.setContentText(m);
         alerta.showAndWait(); 
     }
-        /**
-     * Fazendo configuração das colunas da
-     * tabeça
-     */
+    
     private void configurarTabela(){
         
         //Dizer de onde a coluna vai pegar o valor para
@@ -150,35 +127,23 @@ public class JanelaFuncionarioController implements Initializable {
         //import javafx.scene.control.cell.PropertyValueFactory;
         colID.setCellValueFactory(
                 new PropertyValueFactory("id"));
-        colNome.setCellValueFactory(
-                new PropertyValueFactory("nome"));
-        colEnd.setCellValueFactory(
-                new PropertyValueFactory("endereco"));
-        colTel.setCellValueFactory(
-                new PropertyValueFactory("telefone"));
-        colRg.setCellValueFactory(
-                new PropertyValueFactory("rg"));
-        colCPF.setCellValueFactory(
-                new PropertyValueFactory("cpf"));
-        colDataN.setCellValueFactory(
-                new PropertyValueFactory("dataNasc"));
+        colTipo.setCellValueFactory(
+                new PropertyValueFactory("tipo"));
+        colQuant.setCellValueFactory(
+                new PropertyValueFactory("quantidade"));
         
-    }//configurarTabela
+    }
     
-    /**
-     * Responsável por carregar a lista de atores 
-     * na tabela
-     */
-    private void listarFuncionariosTabela(){
+    private void listarMateriasPrimasTabela(){
         //Limpando quaisquer dados anteriores
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<Funcionario> funcionarios = servico.listar();
+        List<MateriaPrima> materiasPrimas = servico.listar();
         
         //Transformar a lista de funcionario no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(funcionarios);
+        dados = FXCollections.observableArrayList(materiasPrimas);
         
         //Jogando os dados na tabela
         tabela.setItems(dados);
@@ -192,7 +157,8 @@ public class JanelaFuncionarioController implements Initializable {
         alerta.setContentText(m);
         alerta.showAndWait();
     }
-
+    
+    
     @FXML
     private void bEditar(ActionEvent event) {
         
@@ -205,23 +171,15 @@ public class JanelaFuncionarioController implements Initializable {
             //Pegar os dados do funcionario e jogar nos campos do
             //formulario
             tfID.setText(String.valueOf( selecionado.getId() ) );
-            tfNome.setText( selecionado.getNome() ); 
-            tfEnd.setText( selecionado.getEndereco() );
-            tfTel.setText( selecionado.getTelefone() );
-            tfRg.setText( selecionado.getRg() );
-            tfCpf.setText( selecionado.getCpf() );
-            tfDataN.setText( selecionado.getDataNasc() );
+            tfTipo.setText( selecionado.getTipo() ); 
+            tfQuant.setText(String.valueOf(selecionado.getQuantidade()));
                            
         }else{ //não tem ator selecionado na tabela
-            mensagemErro("Selecione um funcionario.");
+            mensagemErro("Selecione uma Materia Prima.");
         }
     }
     
-        /**
-     * Mostra uma caixa com uma mensagem de confirmação
-     * onde a pessoa vai poder responder se deseja realizar
-     * uma ação
-     */
+
     private Optional<ButtonType> mensagemDeConfirmacao(String mensagem, String titulo) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
@@ -255,7 +213,7 @@ public class JanelaFuncionarioController implements Initializable {
                 mensagemSucesso("Funcionario excluído com sucesso");
                 
                 //Atualizar a tabela
-                listarFuncionariosTabela();              
+                listarMateriasPrimasTabela();              
                 
             }
             
@@ -264,7 +222,6 @@ public class JanelaFuncionarioController implements Initializable {
         }else{
             mensagemErro("Selecione um ator.");
         }
-        
     }
     
 }

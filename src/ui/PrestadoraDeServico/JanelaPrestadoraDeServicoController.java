@@ -80,7 +80,7 @@ public class JanelaPrestadoraDeServicoController implements Initializable {
             //Pega os dados do fomulário
             //e cria um objeto funcionario
             PrestadoraDeServico ps = new PrestadoraDeServico(tfNome.getText(),tfEnd.getText(),
-                tfTel.getText(),cbSupervisor.getValue(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
+                tfTel.getText(),cbSupervisor.getClass(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
 
             //Mandar o ator para a camada de servico
             servico.salvar(ps);

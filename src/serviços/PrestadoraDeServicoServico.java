@@ -28,4 +28,19 @@ public class PrestadoraDeServicoServico {
         return dao.listar();
         
     }
+    
+    public void editar(PrestadoraDeServico ps){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        
+        //Mandar a DAO atualizar os dados no BD
+        dao.editar(ps);
+        
+    }
+
+    public void excluir(PrestadoraDeServico ps) {
+        
+        dao.excluir(ps);
+    }
 }

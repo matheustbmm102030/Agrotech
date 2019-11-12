@@ -8,6 +8,7 @@ public class MateriaPrimaServico {
        //Atributo para representar a camada de dados
     private MateriaPrimaDAO dao = new MateriaPrimaDAO();
     
+    
     public void salvar(MateriaPrima mp){
         //Fazer qualquer regra de negócio
         
@@ -29,4 +30,20 @@ public class MateriaPrimaServico {
         return dao.listar();
         
     }
+    
+    public void editar(MateriaPrima mp){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        
+        //Mandar a DAO atualizar os dados no BD
+        dao.editar(mp);
+        
+    }
+
+    public void excluir(MateriaPrima mp) {
+        
+        dao.excluir(mp);
+    }
+    
 }

@@ -16,13 +16,13 @@
             <Menu mnemonicParsing="false" text="Cadastro de Funcionarios">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#abrirJanelaFuncionario" text="Funcionario" />
-                  <MenuItem mnemonicParsing="false" onAction="#prestadoraDeServico" text="Cadastrar Prestadora de Serviço" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaPrestadoraDeServico" text="Cadastrar Prestadora de Serviço" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Cadastro de Mercadorias">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#materiaPrima" text="Cadastrar Materia Prima" />
-                  <MenuItem mnemonicParsing="false" onAction="#produto" text="Cadastrar Produto" />
+                <MenuItem mnemonicParsing="false" onAction="#abrirJanelaMateriaPrima" text="Cadastrar Materia Prima" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaProduto" text="Cadastrar Produto" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Entregas">
