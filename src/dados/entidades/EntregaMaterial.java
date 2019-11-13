@@ -25,12 +25,6 @@ public class EntregaMaterial {
     private Insumo insumo3;
     @ManyToOne(optional=false)
     private Insumo insumo4;
-    @ManyToOne(optional=false)
-    private Insumo insumo5;
-    @ManyToOne(optional=false)
-    private Insumo insumo6;
-    @ManyToOne(optional=false)
-    private Insumo insumo7;
     private String dataEntrega;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
