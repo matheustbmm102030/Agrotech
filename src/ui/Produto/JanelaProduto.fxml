@@ -10,17 +10,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Produto.JanelaProdutoController">
    <children>
-      <JFXButton fx:id="bSalvar" layoutX="359.0" layoutY="124.0" text="Salvar">
+      <JFXButton layoutX="359.0" layoutY="124.0" onAction="#bSalvar" text="Salvar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="bEditar" layoutX="433.0" layoutY="124.0" text="Editar">
+      <JFXButton layoutX="433.0" layoutY="124.0" onAction="#bEditar" text="Editar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="bExcluir" layoutX="507.0" layoutY="124.0" text="Excluir">
+      <JFXButton layoutX="507.0" layoutY="124.0" onAction="#bExcluir" text="Excluir">
          <font>
             <Font size="15.0" />
          </font>
