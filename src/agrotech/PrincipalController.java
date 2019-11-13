@@ -44,12 +44,12 @@ public class PrincipalController implements Initializable {
     }    
 
     @FXML
-    private void abrirJanelaFuncionario(ActionEvent event) throws IOException {
-         //Código para abrir uma nova Janela
+    private void abrirJanelaSupervisores(ActionEvent event) throws IOException {
+        //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
         Parent root = FXMLLoader.load(getClass()
-                .getResource("/ui/Funcionario/JanelaFuncionario.fxml"));
+                .getResource("/ui/Supervisor/JanelaSupervisor.fxml"));
         //Criando a cena
         Scene scene = new Scene(root);
         //Criando a janela (STAGE) 
@@ -69,12 +69,12 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void abrirJanelaPrestadoraDeServico(ActionEvent event) throws IOException {
-                 //Código para abrir uma nova Janela
+    private void abrirJanelaEquipe(ActionEvent event) throws IOException {
+        //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
         Parent root = FXMLLoader.load(getClass()
-                .getResource("/ui/PrestadoraDeServico/JanelaPrestadoraDeServico.fxml"));
+                .getResource("/ui/Equipe/JanelaEquipe.fxml"));
         //Criando a cena
         Scene scene = new Scene(root);
         //Criando a janela (STAGE) 
@@ -94,12 +94,12 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void abrirJanelaMateriaPrima(ActionEvent event) throws IOException {
+    private void abrirJanelaInsumo(ActionEvent event) throws IOException {
         //Código para abrir uma nova Janela
         //Ler o FXML que representa a nova janela
         //(adicionar o throws)
         Parent root = FXMLLoader.load(getClass()
-                .getResource("/ui/MateriaPrima/JanelaInsumo.fxml"));
+                .getResource("/ui/Insumo/JanelaInsumo.fxml"));
         //Criando a cena
         Scene scene = new Scene(root);
         //Criando a janela (STAGE) 
@@ -117,10 +117,8 @@ public class PrincipalController implements Initializable {
         
         stage.show();
     }
-
+    
     @FXML
     private void abrirJanelaProduto(ActionEvent event) {
     }
-    
-    
 }

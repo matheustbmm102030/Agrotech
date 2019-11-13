@@ -34,7 +34,7 @@ public class SupervisorDAO {
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery("Select f from Funcionario f", Supervisor.class);
+      TypedQuery consulta = gerenciador.createQuery("Select f from Supervisor f", Supervisor.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();

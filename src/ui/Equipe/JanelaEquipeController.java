@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ui.Equipe;
 
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Equipe;
+import com.jfoenix.controls.JFXTextField;
+import dados.entidades.Supervisor;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,12 +19,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import serviços.EquipeServico;
+import serviços.SupervisorServico;
 
-/**
- * FXML Controller class
- *
- * @author medei
- */
+
 public class JanelaEquipeController implements Initializable {
 
     @FXML
@@ -45,7 +39,7 @@ public class JanelaEquipeController implements Initializable {
     @FXML
     private JFXTextField tfEnd;
     @FXML
-    private TableView<?> tabela;
+    private TableView<Equipe> tabela;
     @FXML
     private TableColumn<?, ?> colID;
     @FXML
@@ -63,16 +57,36 @@ public class JanelaEquipeController implements Initializable {
     @FXML
     private TableColumn<?, ?> colSupervisor;
     @FXML
-    private JFXComboBox<?> cbSupervisor;
+    private JFXComboBox<Supervisor> cbSupervisor;
+
+    
+    //Atributo que representa os dados para tabela
+    private ObservableList<Equipe> dados
+            = FXCollections.observableArrayList();
+
+    //Atributos para representar os servicos
+    private EquipeServico equipeServico = new EquipeServico();
+    private SupervisorServico supervisorServico = new SupervisorServico();
+
+    //Atributo para representar o filme selecionado
+    //na tabela para editar e excluir
+    private Equipe selecionado;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Configure a tabela
+        configurarTabela();
+
+        //Carregue a lista de atores na tabela
+        listarEquipesTabela();
+
+        //Carregar combo de genero
+        listarSupervisores();
     }    
-/*
+    
     @FXML
     private void bSalvar(ActionEvent event) {
         //Verificar se está atualizando ou inserindo
@@ -80,16 +94,16 @@ public class JanelaEquipeController implements Initializable {
             //Pega os dados do fomulário
             //e cria um objeto funcionario
             Equipe ps = new Equipe(tfNome.getText(),tfEnd.getText(),
-                tfTel.getText(),cbSupervisor.getClass(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
+                tfTel.getText(),cbSupervisor.getValue(),tfRg.getText(),tfCpf.getText(),tfDataN.getText());
 
             //Mandar o ator para a camada de servico
-            servico.salvar(ps);
+            equipeServico.salvar(ps);
             
             //Exibindo mensagem
             mensagemSucesso("Integrante da Equipe salvo com sucesso!");
             
             //Chama o metodo para atualizar a tabela
-            listarEquipeTabela();
+            listarEquipesTabela();
             
         }else{ //atualizando o ator
            
@@ -110,21 +124,19 @@ public class JanelaEquipeController implements Initializable {
                 selecionado.setDataNasc(tfDataN.getText());
                 
                 //Mandando pra camada de serviço salvar as alterações
-                servico.editar(selecionado);
+                equipeServico.editar(selecionado);
                 
                 //Exibindo mensagem
                 mensagemSucesso("Ator atualizado com sucesso!"); 
                 
                 //Chama o metodo para atualizar a tabela
-                 listarEquipeTabela();
+                 listarEquipesTabela();
             }
             
         }
 
         
-        //Limpando o form
-        tfID.setText("");
-        tfNome.setText("");
+        limparCampos();
     }
 
         public void mensagemSucesso(String m){
@@ -154,12 +166,12 @@ public class JanelaEquipeController implements Initializable {
         
     }
     
-    private void listarEquipeTabela(){
+    private void listarEquipesTabela(){
         //Limpando quaisquer dados anteriores
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<Equipe> prestadoraDeServicos = servico.listar();
+        List<Equipe> equipes = equipeServico.listar();
         
         //Transformar a lista de funcionario no formato que a tabela
         //do JavaFX aceita
@@ -168,6 +180,14 @@ public class JanelaEquipeController implements Initializable {
         //Jogando os dados na tabela
         tabela.setItems(dados);
         
+    }
+    
+    private void listarSupervisores() {
+
+        List<Supervisor> supervisores = supervisorServico.listar();
+
+        cbSupervisor.setItems(FXCollections.observableArrayList(supervisores));
+
     }
     
     public void mensagemErro(String m) {
@@ -196,6 +216,7 @@ public class JanelaEquipeController implements Initializable {
             tfRg.setText( selecionado.getRg() );
             tfCpf.setText( selecionado.getCpf() );
             tfDataN.setText( selecionado.getDataNasc() );
+            cbSupervisor.setValue(selecionado.getResponsavel());
                            
         }else{ //não tem ator selecionado na tabela
             mensagemErro("Selecione um Integrante da Equipe.");
@@ -228,13 +249,13 @@ public class JanelaEquipeController implements Initializable {
             if(btn.get() == ButtonType.OK){
                 
                 //Manda para a camada de serviço excluir
-                servico.excluir(selecionado);
+                equipeServico.excluir(selecionado);
                 
                 //mostrar mensagem de sucesso
-                mensagemSucesso("Funcionario excluído com sucesso");
+                mensagemSucesso("Integrante da Equipe excluído com sucesso");
                 
                 //Atualizar a tabela
-                listarEquipeTabela();              
+                listarEquipesTabela();              
                 
             }
             
@@ -244,6 +265,14 @@ public class JanelaEquipeController implements Initializable {
             mensagemErro("Selecione um Integrante da Equipe.");
         }
     }
-    */
-
+    private void limparCampos() {
+        tfID.setText("");
+        tfNome.setText("");
+        tfEnd.setText("");
+        tfRg.setText("");
+        tfCpf.setText("");
+        tfDataN.setText("");
+        tfTel.setText("");
+        cbSupervisor.setValue(null);
+    }
 }

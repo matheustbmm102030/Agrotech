@@ -218,7 +218,7 @@ public class JanelaInsumoController implements Initializable {
             }
             
             
-            
+             
         }else{
             mensagemErro("Selecione um Insumo.");
         }

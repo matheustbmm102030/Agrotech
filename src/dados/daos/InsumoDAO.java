@@ -34,7 +34,7 @@ public class InsumoDAO {
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery("Select mp from MateriaPrima mp", Insumo.class);
+      TypedQuery consulta = gerenciador.createQuery("Select mp from Insumo mp", Insumo.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();

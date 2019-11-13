@@ -6,8 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+@Entity
 public class Insumo {
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String tipo;
     private Integer quantidade;

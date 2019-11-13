@@ -13,16 +13,16 @@
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="589.0">
          <menus>
-            <Menu mnemonicParsing="false" text="Cadastro de Funcionarios">
+            <Menu mnemonicParsing="false" text="Equipe">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaFuncionario" text="Funcionario" />
-                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaPrestadoraDeServico" text="Cadastrar Prestadora de Serviço" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaSupervisores" text="Supervisores" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaEquipe" text="Equipe" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Cadastro de Mercadorias">
+            <Menu mnemonicParsing="false" text="Produto">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#abrirJanelaMateriaPrima" text="Cadastrar Materia Prima" />
-                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaProduto" text="Cadastrar Produto" />
+                <MenuItem mnemonicParsing="false" onAction="#abrirJanelaInsumo" text="Insumos" />
+                  <MenuItem mnemonicParsing="false" onAction="#abrirJanelaProduto" text="Produtos" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Entregas">

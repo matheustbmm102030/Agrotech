@@ -34,7 +34,7 @@ public class EquipeDAO {
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery("Select ps from PrestadoraDeServico ps", Equipe.class);
+      TypedQuery consulta = gerenciador.createQuery("Select ps from Equipe ps", Equipe.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();

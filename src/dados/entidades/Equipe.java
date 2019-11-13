@@ -5,10 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+@Entity
 public class Equipe {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)    
     private Integer id;
     private String nome, endereco, telefone, rg, cpf,dataNasc;
+    
+    @ManyToOne(optional=false)
     private Supervisor responsavel;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
