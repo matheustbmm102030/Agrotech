@@ -21,8 +21,7 @@ public class Produto {
     public Produto(){}
     
     //Construtor
-    public Produto(Integer i, String n, Insumo mp, double cp, Integer q){
-        this.setId(i);
+    public Produto(String n, Integer q, double cp){
         this.setNome(n);
         this.setCustoProducao(cp);
         this.setQuantidade(q);
