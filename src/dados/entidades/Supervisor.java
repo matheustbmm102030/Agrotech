@@ -43,6 +43,10 @@ public class Supervisor {
     public void setCpf(String cpf) {  this.cpf = cpf;}
     public void setDataNasc(String dataNasc) {  this.dataNasc = dataNasc;}
     
+    public String toString(){
+    return nome;
+    }
+    
     
     ///////////////////////////////////////////////////////////////////////////
     

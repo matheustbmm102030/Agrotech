@@ -163,7 +163,8 @@ public class JanelaEquipeController implements Initializable {
                 new PropertyValueFactory("cpf"));
         colDataN.setCellValueFactory(
                 new PropertyValueFactory("dataNasc"));
-        
+        colSupervisor.setCellValueFactory(
+                new PropertyValueFactory("responsavel"));        
     }
     
     private void listarEquipesTabela(){
