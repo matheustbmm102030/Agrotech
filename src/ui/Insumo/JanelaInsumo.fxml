@@ -11,20 +11,20 @@
 <AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Insumo.JanelaInsumoController">
    <children>
       <Separator layoutX="18.0" layoutY="154.0" prefHeight="12.0" prefWidth="618.0" />
-      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="20.0" promptText="ID" />
-      <JFXTextField fx:id="tfTipo" layoutX="17.0" layoutY="58.0" prefHeight="25.0" prefWidth="415.0" promptText="Tipo" />
-      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="113.0" onAction="#bSalvar" ripplerFill="BLACK" text="Salvar">
+      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="20.0" prefHeight="25.0" prefWidth="97.0" promptText="ID" />
+      <JFXTextField fx:id="tfTipo" layoutX="17.0" layoutY="58.0" prefHeight="25.0" prefWidth="618.0" promptText="Tipo" />
+      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="113.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="499.0" layoutY="113.0" onAction="#bEditar" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="499.0" layoutY="113.0" onAction="#bEditar" ripplerFill="#329632" text="Editar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfQuant" layoutX="18.0" layoutY="101.0" prefHeight="25.0" prefWidth="203.0" promptText="Quantidade" />
-      <JFXButton layoutX="576.0" layoutY="113.0" onAction="#bExcluir" text="Excluir">
+      <JFXTextField fx:id="tfQuant" layoutX="433.0" layoutY="20.0" prefHeight="25.0" prefWidth="203.0" promptText="Quantidade" />
+      <JFXButton buttonType="RAISED" layoutX="576.0" layoutY="113.0" onAction="#bExcluir" ripplerFill="#329632" text="Excluir">
          <font>
             <Font size="15.0" />
          </font>

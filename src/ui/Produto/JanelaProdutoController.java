@@ -5,27 +5,24 @@
  */
 package ui.Produto;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Produto;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import serviços.ProdutoServico;
 
-/**
- * FXML Controller class
- *
- * @author medei
- */
 public class JanelaProdutoController implements Initializable {
 
     @FXML
@@ -44,10 +41,22 @@ public class JanelaProdutoController implements Initializable {
     private TableColumn<?, ?> colQuant;
     @FXML
     private TableColumn<?, ?> colPreco;
+    @FXML
+    private TableView<Produto> tabela;    
 
-    /**
-     * Initializes the controller class.
-     */
+    
+    
+    private ProdutoServico servico = new ProdutoServico();
+
+    private ObservableList<Produto> dados = 
+            FXCollections.observableArrayList();
+    
+    private Produto selecionado;
+
+
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
                         
@@ -55,7 +64,7 @@ public class JanelaProdutoController implements Initializable {
         configurarTabela();
         
         //Carregue a lista de atores na tabela
-        listarProdutoTabela();
+        listarProdutosTabela();
     }    
 
     @FXML
@@ -75,7 +84,7 @@ public class JanelaProdutoController implements Initializable {
             mensagemSucesso("Produto salvo com sucesso!");
             
             //Chama o metodo para atualizar a tabela
-            listarInsumoTabela();
+            listarProdutosTabela();
             
         }else{ //atualizando o ator
            
@@ -88,9 +97,9 @@ public class JanelaProdutoController implements Initializable {
             if(btn.get() == ButtonType.OK){
                 //Pegar os novos dados do formulário e
                 //atualizar o meu ator
-                selecionado.setTipo(tfNome.getText());
+                selecionado.setNome(tfNome.getText());
                 selecionado.setQuantidade(Integer.parseInt(tfQuanti.getText()));
-                selecionado.setPreco(Double.parseDouble(tfPreco.getText()));
+                selecionado.setCustoProducao(Double.parseDouble(tfPreco.getText()));
                 
                 //Mandando pra camada de serviço salvar as alterações
                 servico.editar(selecionado);
@@ -99,7 +108,7 @@ public class JanelaProdutoController implements Initializable {
                 mensagemSucesso("Produto atualizado com sucesso!"); 
                 
                 //Chama o metodo para atualizar a tabela
-                 listarProdutoTabela();
+                 listarProdutosTabela();
             }
             
         }
@@ -122,10 +131,10 @@ public class JanelaProdutoController implements Initializable {
         if (selecionado != null) { //tem funcionario selecionado
             //Pegar os dados do funcionario e jogar nos campos do
             //formulario
-            tfID.setText(String.valueOf( selecionado.getId() ) );
+            tfId.setText(String.valueOf( selecionado.getId() ) );
             tfNome.setText( selecionado.getNome() ); 
-            tfQuanti.setText( selecionado.getQuantidade() );
-            tfPreco.setText( selecionado.getPreco() );
+            tfQuanti.setText( String.valueOf(selecionado.getQuantidade()));
+            tfPreco.setText( String.valueOf(selecionado.getCustoProducao())  );
             
                            
         }else{ //não tem ator selecionado na tabela
@@ -151,10 +160,10 @@ public class JanelaProdutoController implements Initializable {
             if(btn.get() == ButtonType.OK){
                 
                 //Manda para a camada de serviço excluir
-                equipeServico.excluir(selecionado);
+                servico.excluir(selecionado);
                 
                 //mostrar mensagem de sucesso
-                mensagemSucesso("Integrante da Equipe excluído com sucesso");
+                mensagemSucesso("Produto excluído com sucesso");
                 
                 //Atualizar a tabela
                 listarProdutosTabela();              
@@ -189,22 +198,22 @@ public class JanelaProdutoController implements Initializable {
         colNome.setCellValueFactory(
                 new PropertyValueFactory("nome"));
         colQuant.setCellValueFactory(
-                new PropertyValueFactory("quanti"));
+                new PropertyValueFactory("quantidade"));
         colPreco.setCellValueFactory(
-                new PropertyValueFactory("preco"));
+                new PropertyValueFactory("custoProducao"));
         
     }
     
-    private void listarInsumoTabela(){
+    private void listarProdutosTabela(){
         //Limpando quaisquer dados anteriores
         dados.clear();
         
         //Solicitando a camada de servico a lista de atores
-        List<Insumo> insumos = servico.listar();
+        List<Produto> produtos = servico.listar();
         
         //Transformar a lista de funcionario no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(insumos);
+        dados = FXCollections.observableArrayList(produtos);
         
         //Jogando os dados na tabela
         tabela.setItems(dados);

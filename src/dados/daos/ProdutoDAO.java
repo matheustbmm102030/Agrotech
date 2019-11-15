@@ -7,7 +7,7 @@ import javax.persistence.TypedQuery;
 import util.JPAUtil;
 
 public class ProdutoDAO {
-    public void salvar(Produto p){
+    public void salvar(Produto f){
         
         //Pegando o gerenciador de acesso ao BD
         EntityManager gerenciador = JPAUtil.getGerenciador();
@@ -16,7 +16,7 @@ public class ProdutoDAO {
         gerenciador.getTransaction().begin();
         
         //Mandar persistir o ator
-        gerenciador.persist(p);
+        gerenciador.persist(f);
         
         //Commit
         gerenciador.getTransaction().commit();
@@ -34,11 +34,47 @@ public class ProdutoDAO {
       EntityManager gerenciador = JPAUtil.getGerenciador(); 
       
       //Criando a consulta ao BD
-      TypedQuery consulta = gerenciador.createQuery(
-              "Select a from Produto p", Produto.class);
+      TypedQuery consulta = gerenciador.createQuery("Select f from Produto f", Produto.class);
       
       //Retornar a lista de atores
       return consulta.getResultList();
+        
+    }
+    
+    public void editar(Produto f) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Mandar sincronizar as alterações 
+        gerenciador.merge(f);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+    
+    public void excluir(Produto f){
+        
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+        
+        //Para excluir tem que dar o merge primeiro para 
+        //sincronizar o ator do BD com o ator que foi
+        //selecionado na tela
+        f = gerenciador.merge(f);
+
+        //Mandar sincronizar as alterações 
+        gerenciador.remove(f);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
         
     }
 }

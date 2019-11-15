@@ -14,12 +14,12 @@
       <JFXTextField fx:id="tfID" editable="false" layoutX="14.0" layoutY="14.0" promptText="ID" />
       <JFXTextField fx:id="tfNome" layoutX="14.0" layoutY="52.0" prefHeight="25.0" prefWidth="450.0" promptText="Nome" />
       <JFXTextField fx:id="tfTel" layoutX="481.0" layoutY="52.0" prefHeight="25.0" prefWidth="170.0" promptText="Telefone" />
-      <JFXButton buttonType="RAISED" layoutX="435.0" layoutY="104.0" onAction="#bSalvar" ripplerFill="BLACK" text="Salvar">
+      <JFXButton buttonType="RAISED" layoutX="435.0" layoutY="104.0" onAction="#bSalvar" ripplerFill="#32b432" text="Salvar">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="517.0" layoutY="104.0" onAction="#bEditar" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="517.0" layoutY="104.0" onAction="#bEditar" ripplerFill="#32b432" text="Editar">
          <font>
             <Font size="15.0" />
          </font>
@@ -28,7 +28,7 @@
       <JFXTextField fx:id="tfCpf" layoutX="187.0" layoutY="92.0" prefHeight="25.0" prefWidth="163.0" promptText="CPF" />
       <JFXTextField fx:id="tfDataN" layoutX="481.0" layoutY="14.0" prefHeight="25.0" prefWidth="170.0" promptText="Data/de/Nascimento" />
       <JFXTextField fx:id="tfEnd" layoutX="236.0" layoutY="14.0" prefHeight="25.0" prefWidth="227.0" promptText="Endereço" />
-      <JFXButton layoutX="594.0" layoutY="104.0" onAction="#bExcluir" text="Excluir">
+      <JFXButton layoutX="594.0" layoutY="104.0" onAction="#bExcluir" ripplerFill="#32b432" text="Excluir">
          <font>
             <Font size="15.0" />
          </font>

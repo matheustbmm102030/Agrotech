@@ -5,15 +5,16 @@ import dados.entidades.Produto;
 import java.util.List;
 
 public class ProdutoServico {
-    
+       
+    //Atributo para representar a camada de dados
     private ProdutoDAO dao = new ProdutoDAO();
     
-    public void salvar(Produto p){
+    public void salvar(Produto f){
         //Fazer qualquer regra de negócio
         
         //Mandar o ator para a camada de dados
         //para ser salvo no banco de dados
-        dao.salvar(p);
+        dao.salvar(f);
     }
     
     /**
@@ -30,4 +31,18 @@ public class ProdutoServico {
         
     }
     
+    public void editar(Produto f){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        
+        //Mandar a DAO atualizar os dados no BD
+        dao.editar(f);
+        
+    }
+
+    public void excluir(Produto f) {
+        
+        dao.excluir(f);
+    }
 }
