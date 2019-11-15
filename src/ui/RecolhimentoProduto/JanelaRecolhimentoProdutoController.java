@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui.EntregaMaterial;
+package ui.RecolhimentoProduto;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -12,44 +12,33 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
- * @author IFNMG
+ * @author User
  */
-public class JanelaEntregaMaterialController implements Initializable {
+public class JanelaRecolhimentoProdutoController implements Initializable {
 
-    @FXML
-    private ComboBox<?> cbinsumo1;
-    @FXML
-    private ComboBox<?> cbinsumo2;
-    @FXML
-    private ComboBox<?> cbinsumo3;
-    @FXML
-    private ComboBox<?> cbinsumo4;
     @FXML
     private JFXTextField tfID;
     @FXML
-    private JFXTextField tfDataEntrega;
-    @FXML
     private JFXComboBox<?> cbPrestador;
+    @FXML
+    private JFXComboBox<?> cbProduto;
+    @FXML
+    private JFXTextField tfDtEntrega;
+    @FXML
+    private JFXTextField tfQantidade;
     @FXML
     private TableColumn<?, ?> colID;
     @FXML
     private TableColumn<?, ?> colPrestador;
     @FXML
-    private TableColumn<?, ?> colInsumo1;
+    private TableColumn<?, ?> corProd;
     @FXML
-    private TableColumn<?, ?> colInsumo2;
-    @FXML
-    private TableColumn<?, ?> colInsumo3;
-    @FXML
-    private TableColumn<?, ?> colInsumo4;
+    private TableColumn<?, ?> colQte;
     @FXML
     private TableColumn<?, ?> colDtEntrega;
 
@@ -62,15 +51,15 @@ public class JanelaEntregaMaterialController implements Initializable {
     }    
 
     @FXML
-    private void bSalvar(ActionEvent event) {
+    private void bExcluir(ActionEvent event) {
+    }
+
+    @FXML
+    private void bsalvar(ActionEvent event) {
     }
 
     @FXML
     private void bEditar(ActionEvent event) {
-    }
-
-    @FXML
-    private void bExcluir(ActionEvent event) {
     }
     
 }
