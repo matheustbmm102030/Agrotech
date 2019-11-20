@@ -10,22 +10,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.RecolhimentoProduto.JanelaRecolhimentoProdutoController">
    <children>
-      <JFXTextField fx:id="tfID" layoutX="14.0" layoutY="29.0" promptText="ID" />
-      <JFXComboBox fx:id="cbPrestador" layoutX="449.0" layoutY="29.0" promptText="Prestador" />
-      <JFXComboBox fx:id="cbProduto" layoutX="14.0" layoutY="74.0" promptText="Produto" />
-      <JFXTextField fx:id="tfDtEntrega" layoutX="449.0" layoutY="74.0" promptText="Data de Entrega" />
-      <JFXTextField fx:id="tfQantidade" layoutX="183.0" layoutY="74.0" promptText="Quantidade" />
+      <JFXTextField fx:id="tfID" editable="false" layoutX="14.0" layoutY="17.0" promptText="ID" />
+      <JFXComboBox fx:id="cbPrestador" layoutX="367.0" layoutY="17.0" prefHeight="25.0" prefWidth="220.0" promptText="Responsavel Pela Equipe" />
+      <JFXComboBox fx:id="cbProduto" layoutX="14.0" layoutY="62.0" prefHeight="25.0" prefWidth="220.0" promptText="Produto" />
+      <JFXTextField fx:id="tfDtEntrega" layoutX="14.0" layoutY="111.0" promptText="Data de Entrega" />
+      <JFXTextField fx:id="tfQantidade" layoutX="367.0" layoutY="62.0" prefHeight="25.0" prefWidth="220.0" promptText="Quantidade" />
       <JFXButton layoutX="532.0" layoutY="123.0" onAction="#bExcluir" text="Excluir" />
       <JFXButton layoutX="410.0" layoutY="123.0" onAction="#bsalvar" text="Salvar" />
       <JFXButton layoutX="470.0" layoutY="123.0" onAction="#bEditar" text="Editar" />
       <Separator layoutX="12.0" layoutY="153.0" prefHeight="0.0" prefWidth="575.0" />
-      <TableView layoutX="12.0" layoutY="156.0" prefHeight="235.0" prefWidth="575.0">
+      <TableView fx:id="tabela" layoutX="12.0" layoutY="156.0" prefHeight="235.0" prefWidth="575.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colPrestador" prefWidth="75.0" text="Prestador" />
-            <TableColumn fx:id="corProd" prefWidth="75.0" text="Produto" />
-            <TableColumn fx:id="colQte" prefWidth="75.0" text="Qantidade" />
-            <TableColumn fx:id="colDtEntrega" prefWidth="102.0" text="Data de Entrega" />
+          <TableColumn fx:id="colPrestador" prefWidth="170.0" text="Prestador" />
+            <TableColumn fx:id="corProd" prefWidth="145.0" text="Produto" />
+            <TableColumn fx:id="colQte" prefWidth="81.0" text="Qantidade" />
+            <TableColumn fx:id="colDtEntrega" prefWidth="103.0" text="Data de Entrega" />
         </columns>
       </TableView>
    </children>
