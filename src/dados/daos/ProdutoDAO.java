@@ -77,4 +77,22 @@ public class ProdutoDAO {
         gerenciador.getTransaction().commit();
         
     }
+    
+     public List<Produto> buscarPeloNome(String nome){
+
+       //Pegando o gerenciador de acesso ao BD
+       EntityManager gerenciador = JPAUtil.getGerenciador(); 
+
+       //Criando a consulta ao BD
+       TypedQuery<Produto> consulta = gerenciador.createQuery(
+                "Select f from Filme f where f.nome like :nome", 
+               Produto.class);
+
+       //Substituindo o parametro :nome pelo valor da variavel n
+       consulta.setParameter("nome", nome + "%");
+
+       //Retornar os dados
+       return consulta.getResultList();
+
+    }
 }

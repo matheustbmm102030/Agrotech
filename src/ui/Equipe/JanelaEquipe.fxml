@@ -35,7 +35,7 @@
          </font>
       </JFXButton>
       <JFXComboBox fx:id="cbSupervisor" layoutX="332.0" layoutY="92.0" prefHeight="25.0" prefWidth="171.0" promptText="Supervisor" />
-      <TableView fx:id="tabela" layoutX="10.0" layoutY="174.0" prefHeight="342.0" prefWidth="764.0">
+      <TableView fx:id="tabela" layoutX="10.0" layoutY="221.0" prefHeight="295.0" prefWidth="764.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="41.0" text="ID" />
             <TableColumn fx:id="colNome" prefWidth="194.0" text="Nome" />
@@ -47,5 +47,7 @@
             <TableColumn fx:id="colSupervisor" prefWidth="125.0" text="Supervisor" />
          </columns>
       </TableView>
+      <JFXTextField fx:id="tfPesquisar" layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="329.0" text="Nome" />
+      <JFXButton layoutX="351.0" layoutY="185.0" onAction="#bPesquisar" text="Pesquisar" />
    </children>
 </AnchorPane>

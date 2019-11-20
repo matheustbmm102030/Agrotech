@@ -78,4 +78,22 @@ public class InsumoDAO {
         
     }
     
+     public List<Insumo> buscarPeloNome(String nome){
+
+       //Pegando o gerenciador de acesso ao BD
+       EntityManager gerenciador = JPAUtil.getGerenciador(); 
+
+       //Criando a consulta ao BD
+       TypedQuery<Insumo> consulta = gerenciador.createQuery(
+                "Select f from Filme f where f.nome like :nome", 
+               Insumo.class);
+
+       //Substituindo o parametro :nome pelo valor da variavel n
+       consulta.setParameter("nome", nome + "%");
+
+       //Retornar os dados
+       return consulta.getResultList();
+
+    }
+    
 }

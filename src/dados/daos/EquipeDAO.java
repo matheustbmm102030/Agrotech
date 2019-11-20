@@ -77,4 +77,24 @@ public class EquipeDAO {
         gerenciador.getTransaction().commit();
         
     }
+    
+     public List<Equipe> buscarPeloNome(String nome){
+
+       //Pegando o gerenciador de acesso ao BD
+       EntityManager gerenciador = JPAUtil.getGerenciador(); 
+
+       //Criando a consulta ao BD
+       TypedQuery<Equipe> consulta = gerenciador.createQuery(
+                "Select f from Filme f where f.nome like :nome", 
+               Equipe.class);
+
+       //Substituindo o parametro :nome pelo valor da variavel n
+       consulta.setParameter("nome", nome + "%");
+
+       //Retornar os dados
+       return consulta.getResultList();
+
+    }
+    
+    
 }

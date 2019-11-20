@@ -58,7 +58,8 @@ public class JanelaEquipeController implements Initializable {
     private TableColumn<?, ?> colSupervisor;
     @FXML
     private JFXComboBox<Supervisor> cbSupervisor;
-
+    @FXML
+    private JFXTextField tfPesquisar;
     
     //Atributo que representa os dados para tabela
     private ObservableList<Equipe> dados
@@ -71,7 +72,7 @@ public class JanelaEquipeController implements Initializable {
     //Atributo para representar o filme selecionado
     //na tabela para editar e excluir
     private Equipe selecionado;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -276,4 +277,27 @@ public class JanelaEquipeController implements Initializable {
         tfTel.setText("");
         cbSupervisor.setValue(null);
     }
+
+    @FXML
+    private void bPesquisar(ActionEvent event) {
+        
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o nome que a pessoa deseja pesquisar
+        String nome = tfPesquisar.getText();
+
+        //Solicitando a camada de servico a lista de atores
+        List<Equipe> funcionarios = equipeServico.buscarPeloNome(nome);
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(funcionarios);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
+        
+    }
+    
+    
 }

@@ -47,4 +47,12 @@ public class SupervisorServico {
         dao.excluir(f);
     }
     
+    public List<Supervisor> buscarPeloNome(String nome){
+
+        //Qualquer regra de negócio (se aplicável)
+
+        //Mandar para a DAO buscar os filmes pelo nome
+        return dao.buscarPeloNome(nome);
+    }
+    
 }

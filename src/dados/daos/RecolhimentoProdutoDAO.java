@@ -78,4 +78,22 @@ public class RecolhimentoProdutoDAO {
         
     }
     
+     public List<RecolhimentoProduto> buscarPeloNome(String nome){
+
+       //Pegando o gerenciador de acesso ao BD
+       EntityManager gerenciador = JPAUtil.getGerenciador(); 
+
+       //Criando a consulta ao BD
+       TypedQuery<RecolhimentoProduto> consulta = gerenciador.createQuery(
+                "Select f from Filme f where f.nome like :nome", 
+               RecolhimentoProduto.class);
+
+       //Substituindo o parametro :nome pelo valor da variavel n
+       consulta.setParameter("nome", nome + "%");
+
+       //Retornar os dados
+       return consulta.getResultList();
+
+    }
+    
 }

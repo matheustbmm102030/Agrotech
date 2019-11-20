@@ -45,4 +45,12 @@ public class ProdutoServico {
         
         dao.excluir(f);
     }
+    
+    public List<Produto> buscarPeloNome(String nome){
+
+        //Qualquer regra de negócio (se aplicável)
+
+        //Mandar para a DAO buscar os filmes pelo nome
+        return dao.buscarPeloNome(nome);
+    }
 }
