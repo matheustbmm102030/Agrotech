@@ -42,4 +42,58 @@ public class EntregaMaterialDAO {
         
     }
     
+    public void editar(EntregaMaterial em) {
+
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+
+        //Mandar sincronizar as alterações 
+        gerenciador.merge(em);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+
+    }
+    
+    public void excluir(EntregaMaterial em){
+        
+        //Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+        
+        //Iniciar a transação
+        gerenciador.getTransaction().begin();
+        
+        //Para excluir tem que dar o merge primeiro para 
+        //sincronizar o ator do BD com o ator que foi
+        //selecionado na tela
+        em = gerenciador.merge(em);
+
+        //Mandar sincronizar as alterações 
+        gerenciador.remove(em);
+        
+        //Commit na transação
+        gerenciador.getTransaction().commit();
+        
+    }
+    
+    public List<EntregaMaterial> buscarPeloNome(String nome){
+        
+       //Pegando o gerenciador de acesso ao BD
+       EntityManager gerenciador = JPAUtil.getGerenciador(); 
+       
+       //Criando a consulta ao BD
+       TypedQuery<EntregaMaterial> consulta = gerenciador.createQuery(
+                "Select f from Filme f where f.nome like :nome", 
+               EntregaMaterial.class);
+       
+       //Substituindo o parametro :nome pelo valor da variavel n
+       consulta.setParameter("nome", nome + "%");
+       
+       //Retornar os dados
+       return consulta.getResultList();
+        
+    }
 }
