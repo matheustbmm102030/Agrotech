@@ -63,4 +63,8 @@ public class Insumo {
         return true;
     }
     
+    public String toString(){
+        return this.getTipo();
+    }
+    
 }

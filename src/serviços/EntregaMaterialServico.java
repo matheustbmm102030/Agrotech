@@ -29,4 +29,29 @@ public class EntregaMaterialServico {
         return dao.listar();
         
     }
+    
+    public void editar(EntregaMaterial em){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        
+        //Mandar a DAO atualizar os dados no BD
+        dao.editar(em);
+        
+    }
+    
+    public void excluir(EntregaMaterial em){
+        //Qualquer regra de negócio (se aplicável)
+        
+        //Mandar para a DAO excluir
+        dao.excluir(em);
+    }
+    
+    public List<EntregaMaterial> buscarPeloNome(String nome){
+        
+        //Qualquer regra de negócio (se aplicável)
+        
+        //Mandar para a DAO buscar os filmes pelo nome
+        return dao.buscarPeloNome(nome);
+    }
 }

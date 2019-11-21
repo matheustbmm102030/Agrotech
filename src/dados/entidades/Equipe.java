@@ -80,4 +80,8 @@ public class Equipe {
         }
         return true;
     }
+    
+    public String toString(){
+        return this.getNome();
+    }
 }
