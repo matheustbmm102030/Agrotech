@@ -56,15 +56,15 @@ public class JanelaEntregaMaterialController implements Initializable {
     @FXML
     private JFXTextField tfDataEntrega;
     @FXML
-    private JFXComboBox<?> cbPrestador;
+    private JFXComboBox<Equipe> cbPrestador;
     @FXML
-    private JFXComboBox<?> cbInsumo4;
+    private JFXComboBox<Insumo> cbInsumo4;
     @FXML
-    private JFXComboBox<?> cbInsumo1;
+    private JFXComboBox<Insumo> cbInsumo1;
     @FXML
-    private JFXComboBox<?> cbInsumo2;
+    private JFXComboBox<Insumo> cbInsumo2;
     @FXML
-    private JFXComboBox<?> cbInsumo3;
+    private JFXComboBox<Insumo> cbInsumo3;
     @FXML
     private JFXTextField tfPesquisar;
     
@@ -83,7 +83,24 @@ public class JanelaEntregaMaterialController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //Configure a tabela
+        configurarTabela();
+
+        //Carregue a lista de atores na tabela
+        listarEntregaMaterialTabela();
+
+        //Carregar combo de genero
+        listarEquipe();
+        
+        listarInsumos1();
+                
+        listarInsumos2();
+                
+        listarInsumos3();
+                
+        listarInsumos4();
+                
+                
     }   
     
     private void configurarTabela() {
@@ -184,7 +201,7 @@ public class JanelaEntregaMaterialController implements Initializable {
             entregaMaterialServico.salvar(em);
 
             //Exibindo mensagem
-            AlertaUtil.mensagemSucesso("Filme salvo com sucesso!");
+            AlertaUtil.mensagemSucesso("Entrega de material salva com sucesso!");
 
             //Carregando lista de filmes
             listarEntregaMaterialTabela();
@@ -212,7 +229,7 @@ public class JanelaEntregaMaterialController implements Initializable {
                 entregaMaterialServico.editar(selecionado);
                 
                 //Exibindo mensagem
-                AlertaUtil.mensagemSucesso("Filme atualizado com sucesso!");
+                AlertaUtil.mensagemSucesso("Entrega de material atualizada com sucesso!");
                 
                 //Carregando lista de filmes
                 listarEntregaMaterialTabela();
@@ -227,18 +244,86 @@ public class JanelaEntregaMaterialController implements Initializable {
 
     @FXML
     private void bEditar(ActionEvent event) {
+
+        //Pegar o filme que foi selecionado na tabela 
+        selecionado = tabela.getSelectionModel().getSelectedItem();
+
+        //Se tem algum filme selecionado
+        if (selecionado != null) {
+            
+            //Pega os dados do filme e joga no formulário
+            tfID.setText(String.valueOf(selecionado.getId()));
+            cbPrestador.setValue(selecionado.getPrestadora());
+            cbInsumo1.setValue(selecionado.getInsumo1());
+            cbInsumo2.setValue(selecionado.getInsumo2());
+            cbInsumo3.setValue(selecionado.getInsumo3());
+            cbInsumo4.setValue(selecionado.getInsumo4());
+            
+        }else{//não selecionou filme na tabela
+            AlertaUtil.mensagemErro("Selecione uma Entrega.");
+        }
+
     }
 
     @FXML
     private void bExcluir(ActionEvent event) {
+        
+        //Pegar o filme que foi selecionado na tabela 
+        selecionado = tabela.getSelectionModel().getSelectedItem();
+        
+        //Se tem algum filme selecionado
+        if (selecionado != null) {
+            
+            //Pegando a resposta da confirmacao do usuario
+            Optional<ButtonType> btn = 
+                AlertaUtil.mensagemDeConfirmacao("Deseja mesmo excluir?",
+                      "EXCLUIR");
+            
+             //Verificando se apertou o OK
+            if(btn.get() == ButtonType.OK){
+                
+                //Manda para a camada de serviço excluir
+                entregaMaterialServico.excluir(selecionado);
+                
+                //mostrar mensagem de sucesso
+                AlertaUtil.mensagemSucesso("Entrega de material excluída com sucesso");
+                
+                //Carregando lista de filmes
+                listarEntregaMaterialTabela();
+            }
+            
+        }
+        
     }
 
     @FXML
     private void pesquisar(ActionEvent event) {
+        
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o nome que a pessoa deseja pesquisar
+        String nome = tfPesquisar.getText();
+        
+        //Solicitando a camada de servico a lista de atores
+        List<EntregaMaterial> entregas = entregaMaterialServico.buscarPeloNome(nome);
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(entregas);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
+        
     }
 
     private void limparCampos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        tfID.setText("");
+        cbPrestador.setValue(null);
+        cbInsumo1.setValue(null);
+        cbInsumo2.setValue(null);
+        cbInsumo3.setValue(null);
+        cbInsumo4.setValue(null);
     }
     
 }

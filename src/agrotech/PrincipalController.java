@@ -161,4 +161,30 @@ public class PrincipalController implements Initializable {
         
         stage.show();
     }
+
+    @FXML
+    private void abrirJanelaEntregaMaterial(ActionEvent event) throws IOException {
+    
+    //Código para abrir uma nova Janela
+        //Ler o FXML que representa a nova janela
+        //(adicionar o throws)
+        Parent root = FXMLLoader.load(getClass()
+                .getResource("/ui/EntregaMaterial/JanelaEntregaMaterial.fxml"));
+        //Criando a cena
+        Scene scene = new Scene(root);
+        //Criando a janela (STAGE) 
+        Stage stage = new Stage(StageStyle.UTILITY);
+        //Titulo na janela
+        stage.setTitle("Entrega de Material");
+        //Adicionando a cena na janela
+        stage.setScene(scene);
+        //Configurando o MODALITY
+        //Diz respeito ao comportamento das janelas anteriores
+        //quando essa for mostrada
+        //Para bloquear interação com as janelas anteriores
+        stage.initModality(Modality.APPLICATION_MODAL);
+        //Mostrando a nova janela
+        
+        stage.show();
+    }
 }
