@@ -88,7 +88,8 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
          if(tfID.getText().isEmpty()){ //inserindo
             //Pega os dados do fomulário
             //e cria um objeto funcionario
-            RecolhimentoProduto ps = new RecolhimentoProduto(cbPrestador.getValue(),cbProduto.getValue(),
+            RecolhimentoProduto ps = new RecolhimentoProduto(Integer.parseInt(tfQantidade.getText()),
+                    cbPrestador.getValue(),cbProduto.getValue(),
                     tfDtEntrega.getText());
 
             //Mandar o ator para a camada de servico
@@ -114,7 +115,7 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
                 selecionado.setPrestadora(cbPrestador.getValue());
                 selecionado.setProdutos(cbProduto.getValue());
                 selecionado.setDataEntrega(tfDtEntrega.getText());
-
+                selecionado.setQuantidade(Integer.parseInt(tfQantidade.getText()));
                 
                 //Mandando pra camada de serviço salvar as alterações
                 Servico.editar(selecionado);
@@ -184,7 +185,7 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
             tfDtEntrega.setText( selecionado.getDataEntrega());
             cbPrestador.setValue(selecionado.getPrestadora());
             cbProduto.setValue(selecionado.getProdutos());
-                           
+            tfQantidade.setText(String.valueOf(selecionado.getQuantidade()));               
         }else{ //não tem ator selecionado na tabela
             mensagemErro("Selecione um Item.");
         }
@@ -212,6 +213,8 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
         
         colID.setCellValueFactory(
                 new PropertyValueFactory("id"));
+        colQte.setCellValueFactory(
+                new PropertyValueFactory("quantidade"));
         colPrestador.setCellValueFactory(
                 new PropertyValueFactory("prestadora"));
         corProd.setCellValueFactory(

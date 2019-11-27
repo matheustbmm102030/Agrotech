@@ -34,9 +34,9 @@ public class EntregaMaterial {
     public EntregaMaterial(Equipe ps, Insumo i1, Insumo i2, Insumo i3, Insumo i4,String de){
         this.setPrestadora(ps);
         this.setInsumo1(i1);
-        this.setInsumo1(i2);
-        this.setInsumo1(i3);
-        this.setInsumo1(i4);
+        this.setInsumo2(i2);
+        this.setInsumo3(i3);
+        this.setInsumo4(i4);
         this.setDataEntrega(de);
     }
 

@@ -66,4 +66,7 @@ public class Produto {
         }
         return true;
     }
+    public String toString(){
+        return this.getNome();
+    }
 }

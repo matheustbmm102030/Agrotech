@@ -13,19 +13,22 @@ public class RecolhimentoProduto {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+    private Integer quantidade;
     
     @ManyToOne(optional=false)
     private Equipe prestadora;
     
     @ManyToOne(optional=false)
     private Produto produtos;
+
     private String dataEntrega;
     
     //Construtor vazio da JPA (OBRIGATÓRIO)
     public RecolhimentoProduto(){}
     
     //Construtor
-    public RecolhimentoProduto(Equipe ps, Produto p,String de){
+    public RecolhimentoProduto(Integer qt, Equipe ps, Produto p,String de){
+        this.setQuantidade(quantidade);
         this.setPrestadora(ps);
         this.setProdutos(p);
         this.setDataEntrega(de);
@@ -35,12 +38,14 @@ public class RecolhimentoProduto {
     public Equipe getPrestadora() {  return prestadora;}
     public Produto getProdutos() {  return produtos;}
     public String getDataEntrega() {  return dataEntrega;}
+    public Integer getQuantidade() {return quantidade;}
 
     
     public void setId(Integer id) {  this.id = id;}
     public void setPrestadora(Equipe prestadora) {  this.prestadora = prestadora;}
     public void setProdutos(Produto produtos) {  this.produtos = produtos;}
     public void setDataEntrega(String dataEntrega) {  this.dataEntrega = dataEntrega;}
+    public void setQuantidade(Integer quantidade) {this.quantidade = quantidade;}
 
     
     
