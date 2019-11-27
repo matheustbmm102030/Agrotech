@@ -89,7 +89,7 @@ public class InsumoDAO {
                Insumo.class);
 
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("nome", nome + "%");
+       consulta.setParameter("nome","%" + nome + "%");
 
        //Retornar os dados
        return consulta.getResultList();

@@ -85,11 +85,11 @@ public class SupervisorDAO {
 
        //Criando a consulta ao BD
        TypedQuery<Supervisor> consulta = gerenciador.createQuery(
-                "Select f from Filme f where f.nome like :nome", 
+                "Select f from Supervisor f where f.nome like :nome", 
                Supervisor.class);
 
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("nome", nome + "%");
+       consulta.setParameter("nome","%" + nome + "%");
 
        //Retornar os dados
        return consulta.getResultList();

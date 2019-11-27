@@ -60,6 +60,8 @@ public class JanelaSupervisorController implements Initializable {
             FXCollections.observableArrayList();
     
     private Supervisor selecionado;
+    @FXML
+    private JFXTextField tfPesquisa;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -266,5 +268,25 @@ public class JanelaSupervisorController implements Initializable {
         }
         
     }
+
+    @FXML
+    private void btnPesquisa(ActionEvent event) {
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o nome que a pessoa deseja pesquisar
+        String nome = tfPesquisa.getText();
+        
+        //Solicitando a camada de servico a lista de atores
+        List<Supervisor> entregas = servico.buscarPeloNome(nome);
+
+        //Transformar a lista de atores no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(entregas);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
+    }
+    
     
 }
