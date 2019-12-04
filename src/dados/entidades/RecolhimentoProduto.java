@@ -28,7 +28,7 @@ public class RecolhimentoProduto {
     
     //Construtor
     public RecolhimentoProduto(Integer qt, Equipe ps, Produto p,String de){
-        this.setQuantidade(quantidade);
+        this.setQuantidade(qt);
         this.setPrestadora(ps);
         this.setProdutos(p);
         this.setDataEntrega(de);
