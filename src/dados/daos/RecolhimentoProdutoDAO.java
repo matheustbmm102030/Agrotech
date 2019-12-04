@@ -85,7 +85,7 @@ public class RecolhimentoProdutoDAO {
 
        //Criando a consulta ao BD
        TypedQuery<RecolhimentoProduto> consulta = gerenciador.createQuery(
-                "Select f from Filme f where f.nome like :nome", 
+                "Select f from RecolhimentoProduto f where f.nome like :nome", 
                RecolhimentoProduto.class);
 
        //Substituindo o parametro :nome pelo valor da variavel n
