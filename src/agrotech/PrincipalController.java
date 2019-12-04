@@ -81,6 +81,8 @@ public class PrincipalController implements Initializable {
         //quando essa for mostrada
         //Para bloquear interação com as janelas anteriores
         stage.initModality(Modality.APPLICATION_MODAL);
+        
+        stage.setResizable(true);
         //Mostrando a nova janela
         
         stage.show();
