@@ -8,35 +8,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Produto.JanelaProdutoController">
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Produto.JanelaProdutoController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="359.0" layoutY="124.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar">
+      <JFXButton buttonType="RAISED" layoutX="433.0" layoutY="109.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar" AnchorPane.rightAnchor="187.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="433.0" layoutY="124.0" onAction="#bEditar" ripplerFill="#329632" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="517.0" layoutY="109.0" onAction="#bEditar" ripplerFill="#329632" text="Editar" AnchorPane.rightAnchor="105.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="507.0" layoutY="124.0" onAction="#bExcluir" ripplerFill="#329633" text="Excluir">
+      <JFXButton buttonType="RAISED" layoutX="592.0" layoutY="109.0" onAction="#bExcluir" ripplerFill="#329633" text="Excluir" AnchorPane.rightAnchor="25.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfId" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="98.0" promptText="Id" />
-      <JFXTextField fx:id="tfNome" layoutX="14.0" layoutY="57.0" prefHeight="25.0" prefWidth="565.0" promptText="Nome" />
-      <JFXTextField fx:id="tfQuanti" layoutX="285.0" layoutY="15.0" promptText="Quantidade" />
-      <JFXTextField fx:id="tfPreco" layoutX="446.0" layoutY="14.0" promptText="Preço" />
-      <TableView fx:id="tabela" layoutX="18.0" layoutY="169.0" prefHeight="217.0" prefWidth="565.0">
+      <JFXTextField fx:id="tfId" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="98.0" promptText="Id" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <JFXTextField fx:id="tfNome" layoutX="18.0" layoutY="70.0" prefHeight="25.0" prefWidth="578.0" promptText="Produto" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="84.0" />
+      <JFXTextField fx:id="tfQuanti" layoutX="436.0" layoutY="14.0" promptText="Quantidade" AnchorPane.leftAnchor="436.0" AnchorPane.topAnchor="14.0" />
+      <JFXTextField fx:id="tfPreco" layoutX="193.0" layoutY="14.0" promptText="Preço" AnchorPane.leftAnchor="193.0" AnchorPane.topAnchor="14.0" />
+      <TableView fx:id="tabela" layoutX="18.0" layoutY="203.0" prefHeight="263.0" prefWidth="644.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="203.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="Id" />
-            <TableColumn fx:id="colNome" prefWidth="261.0" text="Nome" />
+            <TableColumn fx:id="colNome" prefWidth="306.0" text="Produto" />
             <TableColumn fx:id="colQuant" prefWidth="127.0" text="Quantidade" />
-            <TableColumn fx:id="colPreco" prefWidth="101.0" text="Preço(R$)" />
+            <TableColumn fx:id="colPreco" prefWidth="135.0" text="Preço(R$)" />
         </columns>
       </TableView>
-      <Separator layoutX="18.0" layoutY="164.0" prefHeight="0.0" prefWidth="565.0" />
+      <Separator layoutX="18.0" layoutY="156.0" prefHeight="5.0" prefWidth="644.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+      <JFXButton layoutX="481.0" layoutY="158.0" onAction="#bPesquisar" text="Pesquisar" AnchorPane.rightAnchor="134.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="tfPesquisar" layoutX="125.0" layoutY="161.0" prefHeight="25.0" prefWidth="311.0" promptText="Nome Produto" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="244.0" />
    </children>
 </AnchorPane>

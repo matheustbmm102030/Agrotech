@@ -5,6 +5,7 @@
  */
 package ui.Produto;
 
+import com.jfoenix.controls.JFXButton;
 import dados.entidades.Produto;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -52,6 +53,8 @@ public class JanelaProdutoController implements Initializable {
             FXCollections.observableArrayList();
     
     private Produto selecionado;
+    @FXML
+    private JFXTextField tfPesquisar;
 
 
     
@@ -235,5 +238,24 @@ public class JanelaProdutoController implements Initializable {
         alert.setContentText(mensagem);
         return alert.showAndWait();
     }   
+
+    @FXML
+    private void bPesquisar(ActionEvent event) {
+                //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o valor  para pesquisar
+        String nome = tfPesquisar.getText();
+        
+        //Solicitando a camada de servico a lista dos objetos
+        List<Produto> produto = servico.buscarPeloNome(nome);
+
+        //Transformar a lista de objetos no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(produto);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
+    }
     
 }
