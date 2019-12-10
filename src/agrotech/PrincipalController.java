@@ -48,7 +48,7 @@ public class PrincipalController implements Initializable {
         //Criando a janela (STAGE) 
         Stage stage = new Stage(StageStyle.UTILITY);
         //Titulo na janela
-        stage.setTitle("Funcionarios");
+        stage.setTitle("Supervisores");
         //Adicionando a cena na janela
         stage.setScene(scene);
         //Configurando o MODALITY
@@ -73,7 +73,7 @@ public class PrincipalController implements Initializable {
         //Criando a janela (STAGE) 
         Stage stage = new Stage(StageStyle.UTILITY);
         //Titulo na janela
-        stage.setTitle("Prestadoras De Serviços");
+        stage.setTitle("Equipe");
         //Adicionando a cena na janela
         stage.setScene(scene);
         //Configurando o MODALITY
@@ -177,7 +177,7 @@ public class PrincipalController implements Initializable {
         //Criando a janela (STAGE) 
         Stage stage = new Stage(StageStyle.UTILITY);
         //Titulo na janela
-        stage.setTitle("Entrega de Material");
+        stage.setTitle("Entrega de Materiais");
         //Adicionando a cena na janela
         stage.setScene(scene);
         //Configurando o MODALITY

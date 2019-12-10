@@ -43,6 +43,6 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfPesquisar" layoutX="149.0" layoutY="164.0" prefHeight="25.0" prefWidth="220.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="368.0" />
+      <JFXTextField fx:id="tfPesquisar" layoutX="149.0" layoutY="164.0" prefHeight="25.0" prefWidth="220.0" promptText="Data de Entrega" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="368.0" />
    </children>
 </AnchorPane>
