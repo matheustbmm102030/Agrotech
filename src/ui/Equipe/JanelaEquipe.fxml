@@ -11,31 +11,31 @@
 
 <AnchorPane id="AnchorPane" prefHeight="530.0" prefWidth="784.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Equipe.JanelaEquipeController">
    <children>
-      <Separator layoutX="15.0" layoutY="162.0" prefHeight="12.0" prefWidth="755.0" />
-      <JFXTextField fx:id="tfID" editable="false" layoutX="18.0" layoutY="14.0" promptText="ID" />
-      <JFXTextField fx:id="tfNome" layoutX="18.0" layoutY="52.0" prefHeight="25.0" prefWidth="536.0" promptText="Nome" />
-      <JFXTextField fx:id="tfTel" layoutX="591.0" layoutY="14.0" prefHeight="25.0" prefWidth="171.0" promptText="Telefone" />
-      <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="131.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar">
+      <Separator layoutX="15.0" layoutY="162.0" prefHeight="12.0" prefWidth="755.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" />
+      <JFXTextField fx:id="tfID" editable="false" layoutX="18.0" layoutY="14.0" promptText="ID" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="14.0" />
+      <JFXTextField fx:id="tfNome" layoutX="18.0" layoutY="52.0" prefHeight="25.0" prefWidth="536.0" promptText="Nome" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="230.0" />
+      <JFXTextField fx:id="tfTel" layoutX="591.0" layoutY="14.0" prefHeight="25.0" prefWidth="171.0" promptText="Telefone" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="14.0" />
+      <JFXButton buttonType="RAISED" layoutX="557.0" layoutY="131.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar" AnchorPane.rightAnchor="167.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="131.0" onAction="#bEditar" ripplerFill="#339632" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="131.0" onAction="#bEditar" ripplerFill="#339632" text="Editar" AnchorPane.rightAnchor="92.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfRg" layoutX="18.0" layoutY="94.0" promptText="RG" />
-      <JFXTextField fx:id="tfCpf" layoutX="172.0" layoutY="94.0" promptText="CPF" />
-      <JFXTextField fx:id="tfDataN" layoutX="611.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Data/de/Nascimento" />
-      <JFXTextField fx:id="tfEnd" layoutX="307.0" layoutY="14.0" prefHeight="25.0" prefWidth="246.0" promptText="Endereço" />
-      <JFXButton buttonType="RAISED" layoutX="707.0" layoutY="131.0" onAction="#bExcluir" ripplerFill="#339633" text="Excluir">
+      <JFXTextField fx:id="tfRg" layoutX="385.0" layoutY="94.0" prefHeight="25.0" prefWidth="171.0" promptText="RG" AnchorPane.rightAnchor="228.0" />
+      <JFXTextField fx:id="tfCpf" layoutX="596.0" layoutY="94.0" prefHeight="25.0" prefWidth="171.0" promptText="CPF" AnchorPane.rightAnchor="17.0" />
+      <JFXTextField fx:id="tfDataN" layoutX="611.0" layoutY="52.0" prefHeight="25.0" prefWidth="151.0" promptText="Data/de/Nascimento" AnchorPane.rightAnchor="22.0" />
+      <JFXTextField fx:id="tfEnd" layoutX="307.0" layoutY="14.0" prefHeight="25.0" prefWidth="246.0" promptText="Endereço" AnchorPane.leftAnchor="307.0" AnchorPane.rightAnchor="231.0" AnchorPane.topAnchor="14.0" />
+      <JFXButton buttonType="RAISED" layoutX="707.0" layoutY="131.0" onAction="#bExcluir" ripplerFill="#339633" text="Excluir" AnchorPane.rightAnchor="14.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="cbSupervisor" layoutX="332.0" layoutY="92.0" prefHeight="25.0" prefWidth="171.0" promptText="Supervisor" />
-      <TableView fx:id="tabela" layoutX="10.0" layoutY="221.0" prefHeight="295.0" prefWidth="764.0">
+      <JFXComboBox fx:id="cbSupervisor" layoutX="18.0" layoutY="94.0" prefHeight="25.0" prefWidth="238.0" promptText="Supervisor" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="528.0" />
+      <TableView fx:id="tabela" layoutX="10.0" layoutY="221.0" prefHeight="295.0" prefWidth="764.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="221.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="41.0" text="ID" />
             <TableColumn fx:id="colNome" prefWidth="194.0" text="Nome" />
@@ -47,7 +47,10 @@
             <TableColumn fx:id="colSupervisor" prefWidth="125.0" text="Supervisor" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="tfPesquisar" layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="329.0" promptText="Nome" />
-      <JFXButton layoutX="351.0" layoutY="185.0" onAction="#bPesquisar" text="Pesquisar" />
+      <JFXTextField fx:id="tfPesquisar" layoutX="153.0" layoutY="185.0" prefHeight="25.0" prefWidth="329.0" promptText="Nome" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="302.0" />
+      <JFXButton layoutX="550.0" layoutY="182.0" onAction="#bPesquisar" text="Pesquisar" AnchorPane.rightAnchor="151.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

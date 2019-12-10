@@ -81,11 +81,11 @@ public class EntregaMaterialDAO {
        
        //Criando a consulta ao BD
        TypedQuery<EntregaMaterial> consulta = gerenciador.createQuery(
-                "Select e from EntregaMaterial e where e.prestadora like :nome", 
+                "Select e from EntregaMaterial e where e.dataEntrega like :dataEntrega", 
                EntregaMaterial.class);
        
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("prestadora","%" + nome + "%");
+       consulta.setParameter("dataEntrega","%" + nome + "%");
        
        //Retornar os dados
        return consulta.getResultList();

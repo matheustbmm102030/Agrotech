@@ -7,11 +7,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.EntregaMaterial.JanelaEntregaMaterialController">
    <children>
-      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="17.0" promptText="ID" />
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="279.0" prefHeight="312.0" prefWidth="772.0">
+      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="17.0" promptText="ID" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="17.0" />
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="279.0" prefHeight="312.0" prefWidth="772.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="279.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="50.0" text="ID" />
           <TableColumn fx:id="colPrestador" prefWidth="150.0" text="Prestador" />
@@ -22,17 +23,29 @@
             <TableColumn fx:id="colDtEntrega" prefWidth="130.0" text="Data de Entrega" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="tfDataEntrega" layoutX="651.0" layoutY="29.0" promptText="Data de Entrega" />
-      <Separator layoutX="14.0" layoutY="210.0" prefHeight="12.0" prefWidth="772.0" />
-      <JFXButton layoutX="635.0" layoutY="177.0" onAction="#bSalvar" text="Salvar" />
-      <JFXButton layoutX="683.0" layoutY="177.0" onAction="#bEditar" text="Editar" />
-      <JFXButton layoutX="730.0" layoutY="177.0" onAction="#bExcluir" text="Excluir" />
-      <JFXComboBox fx:id="cbPrestador" layoutX="167.0" layoutY="17.0" promptText="Prestador" />
-      <JFXComboBox fx:id="cbInsumo4" layoutX="20.0" layoutY="170.0" promptText="Insumo" />
-      <JFXComboBox fx:id="cbInsumo1" layoutX="20.0" layoutY="50.0" promptText="Insumo" />
-      <JFXComboBox fx:id="cbInsumo2" layoutX="20.0" layoutY="90.0" promptText="Insumo" />
-      <JFXComboBox fx:id="cbInsumo3" layoutX="20.0" layoutY="130.0" promptText="Insumo" />
-      <JFXTextField fx:id="tfPesquisar" layoutX="14.0" layoutY="237.0" prefHeight="25.0" prefWidth="351.0" text="Prestador" />
-      <JFXButton layoutX="374.0" layoutY="237.0" onAction="#pesquisar" text="Pesquisar" />
+      <JFXTextField fx:id="tfDataEntrega" layoutX="639.0" layoutY="17.0" prefHeight="25.0" prefWidth="177.0" promptText="Data de Entrega" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="17.0" />
+      <Separator layoutX="14.0" layoutY="222.0" prefHeight="12.0" prefWidth="772.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <JFXButton layoutX="555.0" layoutY="186.0" onAction="#bSalvar" text="Salvar" AnchorPane.rightAnchor="185.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="637.0" layoutY="186.0" onAction="#bEditar" text="Editar" AnchorPane.rightAnchor="105.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="711.0" layoutY="186.0" onAction="#bExcluir" text="Excluir" AnchorPane.rightAnchor="26.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
+      <JFXComboBox fx:id="cbPrestador" layoutX="314.0" layoutY="17.0" prefHeight="25.0" prefWidth="218.0" promptText="Prestador" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="17.0" />
+      <JFXComboBox fx:id="cbInsumo4" layoutX="20.0" layoutY="170.0" prefHeight="25.0" prefWidth="250.0" promptText="Insumo" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="530.0" />
+      <JFXComboBox fx:id="cbInsumo1" layoutX="20.0" layoutY="50.0" prefHeight="25.0" prefWidth="250.0" promptText="Insumo" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="530.0" />
+      <JFXComboBox fx:id="cbInsumo2" layoutX="20.0" layoutY="90.0" prefHeight="25.0" prefWidth="250.0" promptText="Insumo" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="530.0" />
+      <JFXComboBox fx:id="cbInsumo3" layoutX="20.0" layoutY="130.0" prefHeight="25.0" prefWidth="250.0" promptText="Insumo" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="530.0" />
+      <JFXTextField fx:id="tfPesquisar" layoutX="162.0" layoutY="237.0" prefHeight="25.0" prefWidth="351.0" promptText="Data" AnchorPane.leftAnchor="162.0" />
+      <JFXButton layoutX="532.0" layoutY="234.0" onAction="#pesquisar" text="Pesquisar" AnchorPane.leftAnchor="532.0">
+         <font>
+            <Font size="15.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>
