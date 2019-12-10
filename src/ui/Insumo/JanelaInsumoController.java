@@ -44,6 +44,8 @@ public class JanelaInsumoController implements Initializable {
             FXCollections.observableArrayList();
    
     private Insumo selecionado;
+    @FXML
+    private JFXTextField tfPesquisar;
     
     
     @Override
@@ -222,6 +224,25 @@ public class JanelaInsumoController implements Initializable {
         }else{
             mensagemErro("Selecione um Insumo.");
         }
+    }
+
+    @FXML
+    private void bPesquisar(ActionEvent event) {
+                //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o valor  para pesquisar
+        String nome = tfPesquisar.getText();
+        
+        //Solicitando a camada de servico a lista dos objetos
+        List<Insumo> insumo = servico.buscarPeloNome(nome);
+
+        //Transformar a lista de objetos no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(insumo);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
     }
     
 }

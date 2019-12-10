@@ -85,11 +85,11 @@ public class InsumoDAO {
 
        //Criando a consulta ao BD
        TypedQuery<Insumo> consulta = gerenciador.createQuery(
-                "Select f from Filme f where f.nome like :nome", 
+                "Select f from Insumo f where f.tipo like :tipo", 
                Insumo.class);
 
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("nome","%" + nome + "%");
+       consulta.setParameter("tipo","%" + nome + "%");
 
        //Retornar os dados
        return consulta.getResultList();

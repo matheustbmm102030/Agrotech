@@ -10,31 +10,37 @@
 
 <AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Insumo.JanelaInsumoController">
    <children>
-      <Separator layoutX="18.0" layoutY="154.0" prefHeight="12.0" prefWidth="618.0" />
-      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="20.0" prefHeight="25.0" prefWidth="97.0" promptText="ID" />
-      <JFXTextField fx:id="tfTipo" layoutX="17.0" layoutY="58.0" prefHeight="25.0" prefWidth="618.0" promptText="Tipo" />
-      <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="113.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar">
+      <Separator layoutX="18.0" layoutY="147.0" prefHeight="12.0" prefWidth="618.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="17.0" />
+      <JFXTextField fx:id="tfID" editable="false" layoutX="17.0" layoutY="20.0" prefHeight="25.0" prefWidth="97.0" promptText="ID" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="20.0" />
+      <JFXTextField fx:id="tfTipo" layoutX="17.0" layoutY="58.0" prefHeight="25.0" prefWidth="566.0" promptText="Tipo" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="70.0" />
+      <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="107.0" onAction="#bSalvar" ripplerFill="#329632" text="Salvar" AnchorPane.rightAnchor="180.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="499.0" layoutY="113.0" onAction="#bEditar" ripplerFill="#329632" text="Editar">
+      <JFXButton buttonType="RAISED" layoutX="492.0" layoutY="107.0" onAction="#bEditar" ripplerFill="#329632" text="Editar" AnchorPane.rightAnchor="103.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfQuant" layoutX="433.0" layoutY="20.0" prefHeight="25.0" prefWidth="203.0" promptText="Quantidade" />
-      <JFXButton buttonType="RAISED" layoutX="576.0" layoutY="113.0" onAction="#bExcluir" ripplerFill="#329632" text="Excluir">
+      <JFXTextField fx:id="tfQuant" layoutX="433.0" layoutY="20.0" prefHeight="25.0" prefWidth="203.0" promptText="Quantidade" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton buttonType="RAISED" layoutX="573.0" layoutY="107.0" onAction="#bExcluir" ripplerFill="#329632" text="Excluir" AnchorPane.rightAnchor="17.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="166.0" prefHeight="319.0" prefWidth="626.0">
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="205.0" prefHeight="280.0" prefWidth="626.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="205.0">
          <columns>
             <TableColumn fx:id="colID" prefWidth="82.0" text="ID" />
             <TableColumn fx:id="colTipo" prefWidth="406.0" text="Tipo" />
             <TableColumn fx:id="colQuant" minWidth="0.0" prefWidth="137.0" text="Quantidade" />
          </columns>
       </TableView>
+      <JFXButton layoutX="458.0" layoutY="159.0" onAction="#bPesquisar" text="Pesquisar" AnchorPane.rightAnchor="112.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="tfPesquisar" layoutX="129.0" layoutY="162.0" prefHeight="25.0" prefWidth="284.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="240.0" />
    </children>
 </AnchorPane>
