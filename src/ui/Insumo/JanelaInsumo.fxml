@@ -41,6 +41,6 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="tfPesquisar" layoutX="129.0" layoutY="162.0" prefHeight="25.0" prefWidth="284.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="240.0" />
+      <JFXTextField fx:id="tfPesquisar" layoutX="129.0" layoutY="162.0" prefHeight="25.0" prefWidth="284.0" promptText="Tipo" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="240.0" />
    </children>
 </AnchorPane>

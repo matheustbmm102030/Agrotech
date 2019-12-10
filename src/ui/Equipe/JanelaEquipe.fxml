@@ -47,7 +47,7 @@
             <TableColumn fx:id="colSupervisor" prefWidth="125.0" text="Supervisor" />
          </columns>
       </TableView>
-      <JFXTextField fx:id="tfPesquisar" layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="329.0" text="Nome" />
+      <JFXTextField fx:id="tfPesquisar" layoutX="10.0" layoutY="185.0" prefHeight="25.0" prefWidth="329.0" promptText="Nome" />
       <JFXButton layoutX="351.0" layoutY="185.0" onAction="#bPesquisar" text="Pesquisar" />
    </children>
 </AnchorPane>
