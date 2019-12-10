@@ -79,18 +79,18 @@ public class RecolhimentoProdutoDAO {
     }
     
      public List<RecolhimentoProduto> buscarPeloNome(String nome){
-
+        
        //Pegando o gerenciador de acesso ao BD
        EntityManager gerenciador = JPAUtil.getGerenciador(); 
-
+       
        //Criando a consulta ao BD
        TypedQuery<RecolhimentoProduto> consulta = gerenciador.createQuery(
-                "Select f from RecolhimentoProduto f where f.nome like :nome", 
+                "Select e from RecolhimentoProduto e where e.dataEntrega like :dataEntrega", 
                RecolhimentoProduto.class);
-
+       
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("nome","%" + nome + "%");
-
+       consulta.setParameter("dataEntrega","%" + nome + "%");
+       
        //Retornar os dados
        return consulta.getResultList();
 

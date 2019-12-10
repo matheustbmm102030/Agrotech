@@ -15,7 +15,7 @@ public class InsumoDAO {
         //Iniciar a transação
         gerenciador.getTransaction().begin();
         
-        //Mandar persistir o ator
+        //Mandar persistir
         gerenciador.persist(f);
         
         //Commit
@@ -36,7 +36,7 @@ public class InsumoDAO {
       //Criando a consulta ao BD
       TypedQuery consulta = gerenciador.createQuery("Select mp from Insumo mp", Insumo.class);
       
-      //Retornar a lista de atores
+      //Retornar a lista
       return consulta.getResultList();
         
     }
@@ -66,7 +66,7 @@ public class InsumoDAO {
         gerenciador.getTransaction().begin();
         
         //Para excluir tem que dar o merge primeiro para 
-        //sincronizar o ator do BD com o ator que foi
+        //sincronizar o objeto do BD com o objeto que foi
         //selecionado na tela
         mp = gerenciador.merge(mp);
 

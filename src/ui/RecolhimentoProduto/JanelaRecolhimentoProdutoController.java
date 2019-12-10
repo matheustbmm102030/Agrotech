@@ -67,6 +67,8 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
     //Atributo para representar o filme selecionado
     //na tabela para editar e excluir
     private RecolhimentoProduto selecionado;
+    @FXML
+    private JFXTextField tfPesquisar;
 
     
     
@@ -276,7 +278,27 @@ public class JanelaRecolhimentoProdutoController implements Initializable {
         cbPrestador.setValue(null);
         cbProduto.setValue(null);
         tfDtEntrega.setText("");
+        tfQantidade.setText("");
         
+    }
+
+    @FXML
+    private void bPesquisar(ActionEvent event) {
+        //Limpando quaisquer dados anteriores
+        dados.clear();
+
+        //Pegando o valor  para pesquisar
+        String nome = tfPesquisar.getText();
+        
+        //Solicitando a camada de servico a lista dos objetos
+        List<RecolhimentoProduto> recProd = Servico.buscarPeloNome(nome);
+
+        //Transformar a lista de objetos no formato que a tabela
+        //do JavaFX aceita
+        dados = FXCollections.observableArrayList(recProd);
+
+        //Jogando os dados na tabela
+        tabela.setItems(dados);
     }
 
 }

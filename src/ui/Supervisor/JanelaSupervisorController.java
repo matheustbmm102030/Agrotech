@@ -274,13 +274,13 @@ public class JanelaSupervisorController implements Initializable {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
-        //Pegando o nome que a pessoa deseja pesquisar
+        //Pegando o valor  para pesquisar
         String nome = tfPesquisa.getText();
         
-        //Solicitando a camada de servico a lista de atores
+        //Solicitando a camada de servico a lista dos objetos
         List<Supervisor> entregas = servico.buscarPeloNome(nome);
 
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de objetos no formato que a tabela
         //do JavaFX aceita
         dados = FXCollections.observableArrayList(entregas);
 

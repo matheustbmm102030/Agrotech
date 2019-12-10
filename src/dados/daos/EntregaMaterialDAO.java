@@ -15,7 +15,7 @@ public class EntregaMaterialDAO {
         //Iniciar a transação
         gerenciador.getTransaction().begin();
         
-        //Mandar persistir o ator
+        //Mandar persistir o entregaMaterial
         gerenciador.persist(em);
         
         //Commit
@@ -23,11 +23,6 @@ public class EntregaMaterialDAO {
         
     }
     
-    /**
-     * Retorna uma lista com todos os funcionarios 
-     * que estejam cadastrados no banco de dados
-     * @return 
-     */
     public List<EntregaMaterial> listar(){
         
       //Pegando o gerenciador de acesso ao BD
@@ -37,7 +32,7 @@ public class EntregaMaterialDAO {
       TypedQuery consulta = gerenciador.createQuery(
               "Select em from EntregaMaterial em", EntregaMaterial.class);
       
-      //Retornar a lista de atores
+      //Retornar a lista
       return consulta.getResultList();
         
     }
@@ -67,7 +62,7 @@ public class EntregaMaterialDAO {
         gerenciador.getTransaction().begin();
         
         //Para excluir tem que dar o merge primeiro para 
-        //sincronizar o ator do BD com o ator que foi
+        //sincronizar o objeto do BD com o objeto que foi
         //selecionado na tela
         em = gerenciador.merge(em);
 
@@ -90,7 +85,7 @@ public class EntregaMaterialDAO {
                EntregaMaterial.class);
        
        //Substituindo o parametro :nome pelo valor da variavel n
-       consulta.setParameter("prestadora", nome + "%");
+       consulta.setParameter("prestadora","%" + nome + "%");
        
        //Retornar os dados
        return consulta.getResultList();

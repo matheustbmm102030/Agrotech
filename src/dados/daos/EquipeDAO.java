@@ -15,7 +15,7 @@ public class EquipeDAO {
         //Iniciar a transação
         gerenciador.getTransaction().begin();
         
-        //Mandar persistir o ator
+        //Mandar persistir
         gerenciador.persist(ps);
         
         //Commit
@@ -36,7 +36,7 @@ public class EquipeDAO {
       //Criando a consulta ao BD
       TypedQuery consulta = gerenciador.createQuery("Select ps from Equipe ps", Equipe.class);
       
-      //Retornar a lista de atores
+      //Retornar a lista
       return consulta.getResultList();
         
     }
@@ -66,7 +66,7 @@ public class EquipeDAO {
         gerenciador.getTransaction().begin();
         
         //Para excluir tem que dar o merge primeiro para 
-        //sincronizar o ator do BD com o ator que foi
+        //sincronizar o objeto do BD com o objeto que foi
         //selecionado na tela
         ps = gerenciador.merge(ps);
 
@@ -85,7 +85,7 @@ public class EquipeDAO {
 
        //Criando a consulta ao BD
        TypedQuery<Equipe> consulta = gerenciador.createQuery(
-                "Select f from Filme f where f.nome like :nome", 
+                "Select f from Equipe f where f.nome like :nome", 
                Equipe.class);
 
        //Substituindo o parametro :nome pelo valor da variavel n

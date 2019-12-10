@@ -284,15 +284,15 @@ public class JanelaEquipeController implements Initializable {
         //Limpando quaisquer dados anteriores
         dados.clear();
 
-        //Pegando o nome que a pessoa deseja pesquisar
+        //Pegando o valor  para pesquisar
         String nome = tfPesquisar.getText();
+        
+        //Solicitando a camada de servico a lista dos objetos
+        List<Equipe> equipes = equipeServico.buscarPeloNome(nome);
 
-        //Solicitando a camada de servico a lista de atores
-        List<Equipe> funcionarios = equipeServico.buscarPeloNome(nome);
-
-        //Transformar a lista de atores no formato que a tabela
+        //Transformar a lista de objetos no formato que a tabela
         //do JavaFX aceita
-        dados = FXCollections.observableArrayList(funcionarios);
+        dados = FXCollections.observableArrayList(equipes);
 
         //Jogando os dados na tabela
         tabela.setItems(dados);
